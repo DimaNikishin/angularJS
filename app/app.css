@@ -46,6 +46,10 @@
   border-right: 1px solid #363636;
 }
 
+.page-header {
+  border-bottom:0px solid #eee !important;
+}
+
 .footer {
   color: #F5F5FF;
   height: 100px;
@@ -53,11 +57,12 @@
   background-color: #222;
 }
 
-h4 {
+h4, h2 {
   display: block;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
 
 
