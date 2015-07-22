@@ -38,11 +38,11 @@
       <div>
         <ul class="nav navbar-nav">
           <li class="divider-vertical"></li>
-          <li><a href="#">Home</a></li>
+          <li><a href="#/Home">Home</a></li>
           <li class="divider-vertical"></li>
-          <li><a href="#">Gallery</a></li>
+          <li><a href="#/Gallery">Gallery</a></li>
           <li class="divider-vertical"></li>
-          <li><a href="#">Code sanbox</a></li>
+          <li><a href="#/CodeSandbox">Code sanbox</a></li>
           <li class="divider-vertical"></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -63,24 +63,7 @@
   </nav>
 
   <!-- Application main block -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2 main-menu">
-        <div class="col-sm-12 main-menu-jumbotron">1</div>
-        <div class="col-sm-12 main-menu-firstBlock">2</div>
-        <div class="col-sm-12 main-menu-firstBlock">3</div>
-        <div class="col-sm-12 main-menu-firstBlock">4</div>
-      </div>
-      <div class="col-sm-10 content-block">
-        <div class="jumbotron">
-          <h1>AngularJS App</h1>
-        </div>
-        <div class="col-sm-12 content-block-firstBlock"></div>
-        <div class="col-sm-12 content-block-firstBlock"></div>
-        <div class="col-sm-12 content-block-firstBlock"></div>
-      </div>
-    </div>
-  </div>
+  <div ng-view></div>
 
   <!-- Application footer -->
   <footer class="footer container-fluid">
@@ -100,6 +83,7 @@
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
+  <script src="view3/view3.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

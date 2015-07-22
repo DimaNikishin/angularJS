@@ -44,8 +44,13 @@
   background-color: #245269;
 }
 
-.content-block{
+.content-block {
   background-color: #8699a4;
+  padding-top: 10px !important;
+  padding-bottom: 11px !important;
+}
+
+.content-block-view2 {
   padding-top: 10px !important;
   padding-bottom: 11px !important;
 }
