@@ -30,9 +30,9 @@
   <!-- TODO: add links and 'active' functionality -->
   <!-- TODO: change hover func from css to JQuery (navbrand) -->
   <nav class="navbar navbar-inverse">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" id="navbar-brand" href="#">AngularJS
+        <a class="navbar-brand" id="navbar-brand" href="javascript:void(0)">AngularJS
           <span class="glyphicon glyphicon-globe"></span></a>
       </div>
       <div>
@@ -40,9 +40,9 @@
           <li class="divider-vertical"></li>
           <li><a href="#">Home</a></li>
           <li class="divider-vertical"></li>
-          <li><a href="#">view1</a></li>
+          <li><a href="#">Gallery</a></li>
           <li class="divider-vertical"></li>
-          <li><a href="#">view2</a></li>
+          <li><a href="#">Code sanbox</a></li>
           <li class="divider-vertical"></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -62,9 +62,28 @@
     </div>
   </nav>
 
-  <!-- TODO: Footer and header -->
+  <!-- Application main block -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2 main-menu">
+        <div class="col-sm-12 main-menu-jumbotron">1</div>
+        <div class="col-sm-12 main-menu-firstBlock">2</div>
+        <div class="col-sm-12 main-menu-firstBlock">3</div>
+        <div class="col-sm-12 main-menu-firstBlock">4</div>
+      </div>
+      <div class="col-sm-10 content-block">
+        <div class="jumbotron">
+          <h1>AngularJS App</h1>
+        </div>
+        <div class="col-sm-12 content-block-firstBlock"></div>
+        <div class="col-sm-12 content-block-firstBlock"></div>
+        <div class="col-sm-12 content-block-firstBlock"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Application footer -->
-  <footer class="footer ">
+  <footer class="footer container-fluid">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-12">

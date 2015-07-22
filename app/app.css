@@ -1,34 +1,5 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
 #navbar-brand:hover {
   color: #9d9d9d;
   border-radius: 0px;
@@ -37,6 +8,7 @@
 .navbar {
   width: 100%;
   border-radius: 0px !important;
+  margin: 0px !important;
 }
 
 .divider-vertical {
@@ -44,6 +16,38 @@
   margin: 0 9px;
   border-left: 1px solid #363636;
   border-right: 1px solid #363636;
+}
+
+.jumbotron {
+  margin: 0px !important;
+  margin-bottom: 10px !important;
+}
+
+.content-block-firstBlock {
+  background-color: #FFFFFF;
+  border-radius: 5px !important;
+  height: 500px;
+  margin-top: 10px;
+}
+
+.main-menu {
+  background-color: #245269;
+}
+
+.main-menu-jumbotron {
+  height: 220px;
+  background-color: #245269;
+}
+
+.main-menu-firstBlock {
+  height: 512px;
+  background-color: #245269;
+}
+
+.content-block{
+  background-color: #8699a4;
+  padding-top: 10px !important;
+  padding-bottom: 11px !important;
 }
 
 .page-header {
