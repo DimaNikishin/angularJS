@@ -21,6 +21,7 @@
 .jumbotron {
   margin: 0px !important;
   margin-bottom: 10px !important;
+  background-color: #FFFFFF;
 }
 
 .content-block-firstBlock {
@@ -31,23 +32,30 @@
 }
 
 .main-menu {
-  background-color: #245269;
+  background-color: #550000;
+  margin-bottom: 0px !important;
+  padding-bottom: 11px !important;
 }
 
 .main-menu-jumbotron {
-  height: 220px;
-  background-color: #245269;
+  height: 195px;
+  background-color: #FFFFFF;
+  border-radius: 5px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
-.main-menu-firstBlock {
-  height: 512px;
-  background-color: #245269;
+.main-menu-firstBlock {;
+  height: 500px;
+  background-color: #FFFFFF;
+  margin-top: 10px !important;
+  border-radius: 5px !important;
 }
 
 .content-block {
-  background-color: #8699a4;
   padding-top: 10px !important;
   padding-bottom: 11px !important;
+  background-color: #550000;
 }
 
 .content-block-view2 {
@@ -66,7 +74,7 @@
   background-color: #222;
 }
 
-h4, h2 {
+h4, h2, #jumbotron_heading_markup {
   display: block;
   text-align: center;
   padding-top: 30px;
