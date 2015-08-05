@@ -2,35 +2,21 @@
     <div class="row">
         <div class="col-sm-2 main-menu">
             <div class="col-sm-12 main-menu-jumbotron">
-                <h2 ng-bind="documentContent[0].menu"></h2>
+                <h2 ng-bind="documentTitle.menu"></h2>
             </div>
-            <div class="col-sm-12 main-menu-firstBlock">
-                <h2 ng-bind="documentContent[1].menu"></h2>
-            </div>
-            <div class="col-sm-12 main-menu-firstBlock">
-                <h2 ng-bind="documentContent[2].menu"></h2>
-            </div>
-            <div class="col-sm-12 main-menu-firstBlock">
-                <h2 ng-bind="documentContent[3].menu"></h2>
+            <div class="col-sm-12 main-menu-firstBlock" content-hover-func ng-repeat="documents in documentContent">
+                <h2 ng-bind="documents.menu"></h2>
             </div>
         </div>
         <div class="col-sm-10 content-block">
             <div class="jumbotron">
-                <h1 ng-bind="documentContent[0].title"></h1>
+                <h1 ng-bind="documentTitle.title"></h1>
             </div>
-            <div class="col-sm-12 content-block-firstBlock">
-                <h3 ng-bind="documentContent[1].title"></h3>
-                <p ng-bind="documentContent[1].content"></p>
-            </div>
-            <div class="col-sm-12 content-block-firstBlock">
-                <h3 ng-bind="documentContent[2].title"></h3>
-                <p ng-bind="documentContent[2].content"></p>
-            </div>
-            <div class="col-sm-12 content-block-firstBlock">
-                <h3 ng-bind="documentContent[3].title"></h3>
-                <p ng-bind="documentContent[3].content"></p>
-                <h3 ng-bind="documentContent[4].title"></h3>
-                <p ng-bind="documentContent[4].content"></p>
+            <div class="col-sm-12 content-block-firstBlock" content-hover-func ng-repeat="documents in documentContent">
+                <h3 ng-bind="documents.title"></h3>
+                <p ng-bind="documents.content"></p>
+                <h3 ng-bind="documents.secondTitle"></h3>
+                <p ng-bind="documents.secondContent"></p>
             </div>
         </div>
     </div>

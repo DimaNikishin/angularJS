@@ -20,7 +20,7 @@
 }
 
 .content-block-firstBlock {
-  background-color: #FFFFFF;
+  background-color: #550000;
   border-radius: 5px !important;
   height: 500px;
   margin-top: 10px;
@@ -42,7 +42,7 @@
 
 .main-menu-firstBlock {;
   height: 500px;
-  background-color: #FFFFFF;
+  background-color: #550000;
   margin-top: 10px !important;
   border-radius: 5px !important;
 }
@@ -74,6 +74,10 @@ h4, h2, #jumbotron_heading_markup {
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.content-block-firstBlock > h3, .main-menu-firstBlock > h2, .content-block-firstBlock > p {
+    color: #FFFFFF!important;
 }
 
 
