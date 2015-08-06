@@ -8,14 +8,34 @@ angular.module('myApp.view1', ['ngRoute'])
     controller: 'View1Ctrl'
   });
 }])
+// first directive with hover functionality for main content
+.directive('contentHoverFunc', ['$document', function($document){
+  return {
+    link: function(scope,element,attr){
+      element.on('mouseenter', function(){
+        var blockIndex = angular.element(this).index();
+        angular.element('.main-menu').children().eq(blockIndex).css({
+          'background-color': '#000000'
+        });
+        angular.element('.content-block').children().eq(blockIndex).css({
+          'background-color': '#000000'
+        });
+      })
+      element.on('mouseleave', function(){
+        var blockIndex = angular.element(this).index();
+        angular.element('.content-block').children().eq(blockIndex).css({
+          'background-color': '#550000'
+        });
+        angular.element('.main-menu').children().eq(blockIndex).css({
+          'background-color': '#550000'
+        });
+      })
+    }
+  }
+}])
 
 .controller('View1Ctrl', ['$scope',function($scope) {
   $scope.documentContent = [
-    {
-      menu:"Main",
-      title:"AngularJS App",
-      content:""
-    },
     {
       menu:"Javascript",
       title:"Javascript",
@@ -30,12 +50,13 @@ angular.module('myApp.view1', ['ngRoute'])
     {
       menu:"HTML5/CSS3",
       title:"HTML5",
-      content:"s a core technology markup language of the Internet used for structuring and presenting content for the World Wide Web. As of October 2014 this is the final and complete[2] fifth revision of the HTML standard of the World Wide Web Consortium (W3C).[3] The previous version, HTML 4, was standardized in 1997.Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices (web browsers, parsers, etc.). HTML5 is intended to subsume not only HTML 4, but also XHTML 1 and DOM Level 2 HTML.[4]Following its immediate predecessors HTML 4.01 and XHTML 1.1, HTML5 is a response to the fact that the HTML and XHTML in common use on the World Wide Web are a mixture of features introduced by various specifications, along with those introduced by software products such as web browsers, those established by common practice.[5] It is also an attempt to define a single markup language that can be written in either HTML or XHTML. It includes detailed processing models to encourage more interoperable implementations; it extends, improves and rationalizes the markup available for documents, and introduces markup and application programming interfaces (APIs) for complex web applications.[6] For the same reasons, HTML5 is also a potential candidate for cross-platform mobile applications. Many features of HTML5 have been built with the consideration of being able to run on low-powered devices such as smartphones and tablets. In December 2011, research firm Strategy Analytics forecast sales of HTML5 compatible phones would top 1 billion in 2013.[7]"
-    },
-    {
-      menu:"",
-      title:"CSS3",
-      content:"s a style sheet language used for describing the look and formatting of a document written in a markup language. Although most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.[1]CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts.[2] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that \"all heading 1 elements should be bold\", leaving pure semantic HTML markup that asserts \"this text is a level 1 heading\" without formatting code such as a bold tag indicating how such text should be displayed."
+      content:"s a core technology markup language of the Internet used for structuring and presenting content for the World Wide Web. As of October 2014 this is the final and complete[2] fifth revision of the HTML standard of the World Wide Web Consortium (W3C).[3] The previous version, HTML 4, was standardized in 1997.Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices (web browsers, parsers, etc.). HTML5 is intended to subsume not only HTML 4, but also XHTML 1 and DOM Level 2 HTML.[4]Following its immediate predecessors HTML 4.01 and XHTML 1.1, HTML5 is a response to the fact that the HTML and XHTML in common use on the World Wide Web are a mixture of features introduced by various specifications, along with those introduced by software products such as web browsers, those established by common practice.[5] It is also an attempt to define a single markup language that can be written in either HTML or XHTML. It includes detailed processing models to encourage more interoperable implementations; it extends, improves and rationalizes the markup available for documents, and introduces markup and application programming interfaces (APIs) for complex web applications.[6] For the same reasons, HTML5 is also a potential candidate for cross-platform mobile applications. Many features of HTML5 have been built with the consideration of being able to run on low-powered devices such as smartphones and tablets. In December 2011, research firm Strategy Analytics forecast sales of HTML5 compatible phones would top 1 billion in 2013.[7]",
+      secondTitle:"CSS3",
+      secondContent:"s a style sheet language used for describing the look and formatting of a document written in a markup language. Although most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.[1]CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts.[2] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that \"all heading 1 elements should be bold\", leaving pure semantic HTML markup that asserts \"this text is a level 1 heading\" without formatting code such as a bold tag indicating how such text should be displayed."
     }
   ];
+  $scope.documentTitle = {
+    menu: "Main menu",
+    title: "AngularJS App"
+  };
 }]);
