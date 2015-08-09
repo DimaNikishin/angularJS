@@ -9,10 +9,9 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 // first directive with hover functionality for main content
-.directive('contentHoverFunc', ['$document', function($document){
-  return {
-    link: function(scope,element,attr){
-      element.on('mouseenter', function(){
+.directive('contentHoverFunc', [function(){
+  return function(scope,element){
+      element.bind('mouseenter', function(){
         var blockIndex = angular.element(this).index();
         angular.element('.main-menu').children().eq(blockIndex).css({
           'background-color': '#000000'
@@ -21,7 +20,7 @@ angular.module('myApp.view1', ['ngRoute'])
           'background-color': '#000000'
         });
       })
-      element.on('mouseleave', function(){
+      element.bind('mouseleave', function(){
         var blockIndex = angular.element(this).index();
         angular.element('.content-block').children().eq(blockIndex).css({
           'background-color': '#550000'
@@ -31,7 +30,6 @@ angular.module('myApp.view1', ['ngRoute'])
         });
       })
     }
-  }
 }])
 
 .controller('View1Ctrl', ['$scope',function($scope) {

@@ -4,7 +4,10 @@
       <div class="jumbotron">
         <h1 id="jumbotron_heading_markup">AngularJS App</h1>
       </div>
-      <div class="col-sm-12 content-block-firstBlock"></div>
+      <div class="col-sm-12">
+          <div class="gallery"><weather picture="{{pic.icon}}" ng-repeat="pic in weatherObjects.pictures"></weather></div>
+          <div class="gallery"><img ng-src="{{pic.icon}}" ng-repeat="pic in weatherObjects.pictures"></div>
+      </div>
     </div>
   </div>
 </div>

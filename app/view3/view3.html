@@ -4,23 +4,17 @@
             <div class="jumbotron">
                 <h1 id="jumbotron_heading_markup">Code Sandbox</h1>
             </div>
-            <div class="col-sm-12 content-block-firstBlock">
-                <div ng-controller="View3Ctrl">
-                    <input type="text" ng-model="data.message">
-                    <h1>{{ data.message}}</h1>
-                    <h1>{{ messageReverted(data.message)}}</h1>
-                    <h1>{{ data.message | reverse }}</h1>
+            <div class="col-sm-12">
+                <div systems name="Dima" func="alertmessage(name,message)" names="psysdata[0]" psysdata="psysdata"></div>
+                <div systems name="Dima" func="alertmessage(name,message)" names="psysdata[0]" psysdata="psysdata"></div>
+                <div systems name="Dima" func="alertmessage(name,message)" names="psysdata[0]" psysdata="psysdata"></div>
+                <transcl>
+                    <button>Click Me!!!!</button>
+                </transcl>
+                <div ng-controller="testCntr">
+                    <button ng-click="testCntr.sayHi()">name</button>
                 </div>
-                <div ng-controller="View4Ctrl">
-                    <input type="text" ng-model="data.message">
-                    <h1>{{ data.message}}</h1>
-                    <h1>{{ message}}</h1>
-                </div>
-                <div ng-controller="View5Ctrl">
-                    <input type="text" ng-model="data.message">
-                    <h1>{{ data.message}}</h1>
-                    <h1>{{ message}}</h1>
-                </div>
+
             </div>
         </div>
     </div>
