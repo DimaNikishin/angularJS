@@ -69,7 +69,7 @@
   background-color: #222;
 }
 
-h4, h2, #jumbotron_heading_markup {
+h4, h2, .jumbotron_heading_markup {
   display: block;
   text-align: center;
   padding-top: 30px;
