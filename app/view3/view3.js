@@ -1,11 +1,20 @@
 'use strict';
 
 angular.module('myApp.view3', ['ngRoute'])
-
+//add resolve
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/CodeSandbox', {
         templateUrl: 'view3/view3.html',
-        controller: 'View3Ctrl'
+        controller: 'View3Ctrl',
+        resolve: {
+          complete: function($q, $timeout){
+            var defer = $q.defer();
+            $timeout(function(){
+              defer.resolve();
+            }, 2000);
+            return defer.promise.then(function(){alert("then")})
+          }
+        }
     });
 }])
 //created serivece with data
@@ -23,6 +32,9 @@ angular.module('myApp.view3', ['ngRoute'])
     $scope.messages = "data1";
     $scope.data = Data;
     $scope.psysdata = ['DND','MMO','Single'];
+    $scope.newAllertMes = function(message){
+      alert(message);
+    }
     $scope.messageReverted = function(message){
       if(message === undefined){
         return ""
@@ -138,7 +150,8 @@ angular.module('myApp.view3', ['ngRoute'])
       flawor: '&',
       apple: '=name'
     },
-    template: '<input type="text" ng-model="data">' + '<button ng-click="flawor({messages:data})"> {{ flawor({messages:data}) }} </button>' + '<div>{{ apple }}</div>'
+    template: '<input type="text" ng-model="data">' + '<button ng-click="flawor({message:data})">{{data}}</button>' + '<div>{{apple}}</div>',
+
   }
 }])
 
@@ -174,5 +187,76 @@ angular.module('myApp.view3', ['ngRoute'])
     alert("Hi");
   }
   return $scope.testCntr = this;
+}])
+
+//template compile and saving dom element into var - save template el to var, append it into template via complie and $watch model.data value and change div correspond to this value
+.directive('compile',[function(){
+  var divBlock = angular.element("<div ng-bind='model.data'></div>");//in ng-bind better to use object properties than objects
+  var link = function(scope){
+    scope.$watch("model.data", function(value){
+      if(value === "password"){
+        divBlock.css({'background-color':'#550000'});
+        alert(value);
+      }
+      else{
+        divBlock.css({'background-color':'#ffffff'});
+      }
+    })
+  }
+  return{
+    restrict: "E",
+    replace: true,
+    template: '<div><input type=\"text\" ng-model=\"model.data\"></div>',
+    compile: function(templateE){
+      templateE.append(divBlock)
+      return link;
+    }
+  }
+}])
+
+//$templateCache service
+
+.run(function($templateCache){
+  $templateCache.put("exemplar.html",'<div><input type="text" ng-model="cacheData"><div ng-bind="cacheData"></div></div>')
+})
+
+.directive('templates',['$templateCache',function($templateCache){
+    var temp = ($templateCache.get("exemplar.html"))
+  return {
+    restrict: "E",
+    scope: {},
+    templateUrl: "exemplar.html",
+    link: function (scope) {
+      scope.$watch("cacheData", function (value) {
+        if(value === "password") {
+          alert(value);
+        }
+      })
+    }
+  }
+}])
+
+// from config routeProvider comes servies route (in config goes providers and returns services)
+
+//promises $q - promise library
+
+.controller('View3CtrlwithQ',['$scope', '$q', function($scope, $q){
+  var defer = $q.defer();
+
+  defer.promise
+    .then(function(par){
+      if (par === ''){
+        alert("How!")
+        return("it was empty")
+      }
+      else{
+        return "it was" + par;
+      }
+    })
+    .then(function(par){
+      alert(par);
+    })
+  defer.resolve("");
 }]);
 
+//write some resolves and on weekends try to download $http with it

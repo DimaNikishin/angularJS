@@ -16,7 +16,7 @@ angular.module('myApp.view1', ['ngRoute'])
         angular.element('.main-menu').children().eq(blockIndex).css({
           'background-color': '#000000'
         });
-        angular.element('.content-block').children().eq(blockIndex).css({
+        angular.element('.content-block').children().eq(blockIndex ).css({
           'background-color': '#000000'
         });
       })
