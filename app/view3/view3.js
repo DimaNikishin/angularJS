@@ -238,12 +238,12 @@ angular.module('myApp.view3', ['ngRoute'])
 
 // from config routeProvider comes servies route (in config goes providers and returns services)
 
-//promises $q - promise library
+//promises $q - .resolve - enable $q service and turn on .promise function, and .promise store func what should be executed after .resolve is completed
 
 .controller('View3CtrlwithQ',['$scope', '$q', function($scope, $q){
   var defer = $q.defer();
 
-  defer.promise
+  $scope.func = function(){defer.promise
     .then(function(par){
       if (par === ''){
         alert("How!")
@@ -255,8 +255,8 @@ angular.module('myApp.view3', ['ngRoute'])
     })
     .then(function(par){
       alert(par);
-    })
+    })}
   defer.resolve("");
 }]);
 
-//write some resolves and on weekends try to download $http with it
+//write some resolves and on weekends try to download $http with it (resolve property - list of promises need to to do before template loaded (used in view2)
