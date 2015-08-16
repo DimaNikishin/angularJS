@@ -1,5 +1,5 @@
 'use strict';
-
+//TODO: create anonim fun to chose between defer.resolve and defer.reject and invent condition (maybe with AJAX error)
 angular.module('myApp.view3', ['ngRoute'])
 //add resolve
 .config(['$routeProvider', function($routeProvider) {
@@ -11,8 +11,8 @@ angular.module('myApp.view3', ['ngRoute'])
             var defer = $q.defer();
             $timeout(function(){
               defer.resolve();
-            }, 2000);
-            return defer.promise.then(function(){alert("then")})
+            }, 200);
+            return defer.promise
           }
         }
     });
@@ -221,7 +221,7 @@ angular.module('myApp.view3', ['ngRoute'])
 })
 
 .directive('templates',['$templateCache',function($templateCache){
-    var temp = ($templateCache.get("exemplar.html"))
+    $templateCache.get("exemplar.html")
   return {
     restrict: "E",
     scope: {},
@@ -257,6 +257,19 @@ angular.module('myApp.view3', ['ngRoute'])
       alert(par);
     })}
   defer.resolve("");
-}]);
+}])
 
 //write some resolves and on weekends try to download $http with it (resolve property - list of promises need to to do before template loaded (used in view2)
+
+// resolve routeChangeError event (controller that store downloading errors) this alternative controller for view3 should be created in app.js (but i'm able to call this cntrl in index.html
+//because it is only for test and learn of angular it is located in sanbox (this cntrl listening all $routeChangeError and not specified for routeChange to view3
+.controller('AlternativeCntrl',['$scope','$rootScope', function($scope, $rootScope){
+  $rootScope.$on('$routeChangeError',function(event, current, previous, rejection){
+    console.log(event)
+    console.log(current)
+    console.log(previous)
+    console.log(rejection)
+  })
+}]);
+
+//route change life cycle can be traced by listen routeChangeStart and routeChangeSuccess events:

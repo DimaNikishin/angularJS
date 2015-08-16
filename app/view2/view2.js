@@ -20,9 +20,9 @@ angular.module('myApp.view2', ['ngRoute'])
       //      return err;
       //    });
       //}],
-      promisesGallery: ['$http','$q', function($http, $q){
+      promisesGallery: ['$http','$q','$timeout', function($http, $q, $timeout){
         var defer = $q.defer();
-        defer.resolve();
+        $timeout(function(){defer.resolve();},2000); //add timeout for listen routeChange events (without it goes to fast)
         return defer.promise.then(function(){return $http.get('http://localhost:8000/app/gallery.json')
           .success(function(item) {
             return angular.fromJson(item);
@@ -76,3 +76,14 @@ angular.module('myApp.view2', ['ngRoute'])
     template:'<img ng-src="{{picture}}">'
   }
 }])
+// controller that console reason why view2 controller is not loaded
+
+.controller('AlternativeCntrlView2',['$scope','$rootScope', function($scope, $rootScope){
+  $rootScope.$on('$routeChangeError',function(event, current, previous, rejection){
+    console.log("failed to load JSON file");
+    console.log(event);
+    console.log(current);
+    console.log(previous);
+    console.log(rejection);
+  })
+}]);
