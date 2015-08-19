@@ -4,6 +4,7 @@
         <div class="col-sm-12 content-block-view2">
             <div class="jumbotron">
                 <h1 id="jumbotron_heading_markup">Code Sandbox</h1>
+                <h3>{{name}}</h3>
             </div>
             <div class="col-sm-6">
                 <div systems name="Dima" func="alertmessage(name,message)" names="psysdata[0]" psysdata="psysdata"></div>
@@ -23,6 +24,13 @@
             </div>
             <div class="col-sm-6">
                 <templates></templates>
+                <country><state><city></city></state></country>
+                <div ng-controller="testCntrl as cntrl">
+                    <button ng-click="cntrl.myFunct($event)"></button>
+                </div>
+                <div ng-repeat-start="data in psysdata">{{data}}</div>
+                <h6>Hola-hup</h6>
+                <div ng-repeat-end="">ng-repeat {{data}}</div>
             </div>
         </div>
     </div>

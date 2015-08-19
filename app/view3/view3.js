@@ -2,7 +2,20 @@
 //TODO: create anonim fun to chose between defer.resolve and defer.reject and invent condition (maybe with AJAX error)
 angular.module('myApp.view3', ['ngRoute'])
 //add resolve
-.config(['$routeProvider', function($routeProvider) {
+//creating a provider and factory in config (every thing that can be inject into controller configured through $provide
+// if you want to configure your oun created provider - it should be created not inside config
+.provider('configuredTest',[function(){
+  var secondName = "";
+  return{
+    $setSecondName: function(name){
+      secondName = name;
+    },
+    $get: function(){
+      return {name :secondName + " Moby"}
+    }
+  }
+}])
+.config(['$routeProvider','$provide','configuredTestProvider', function($routeProvider, $provide, configuredTestProvider) {
     $routeProvider.when('/CodeSandbox', {
         templateUrl: 'view3/view3.html',
         controller: 'View3Ctrl',
@@ -16,10 +29,23 @@ angular.module('myApp.view3', ['ngRoute'])
           }
         }
     });
+// inject new provider and factory by $provider
+    $provide.factory('test',[function(){
+      return {
+        name:"Moby"
+      }
+    }]);
+
+// create provider with $get and $set method and configured it data by $setSecondName and configuredTestProvider
+    configuredTestProvider.$setSecondName('Jonny')
 }])
+
 //created serivece with data
 .factory('Data', function(){
     return {message: "I'am not only one"}
+})
+.service('servData', function(){
+  this.products = {title: "apple"}
 })
 //created filter
 .filter('reverse', function(){
@@ -28,9 +54,15 @@ angular.module('myApp.view3', ['ngRoute'])
     }
 })
 // shared service with data between controllers
-.controller('View3Ctrl', ['$scope','Data', function($scope, Data) {
+// $injector is allow to load provider
+.controller('View3Ctrl', ['$scope','$injector', function($scope, $injector) {
+    $injector.invoke(function(Data,configuredTest, servData){
+      $scope.name = configuredTest.name;
+      $scope.data = Data;
+      $scope.title = servData.products.title;
+    });
     $scope.messages = "data1";
-    $scope.data = Data;
+    $scope.mainstring = "anotherData";
     $scope.psysdata = ['DND','MMO','Single'];
     $scope.newAllertMes = function(message){
       alert(message);
@@ -58,16 +90,16 @@ angular.module('myApp.view3', ['ngRoute'])
     $scope.data = Data
 }])
 // 2 directive connected to 'newdirective' and use it controllers (functions)
-.directive("newdirective",[function(){
+.directive("country",[function(){
     return {
       restrict: "E",
       scope: {},
       controller: function($scope){
         $scope.mainstring = "hello world"
 
-        this.alertString = function(){
-          $scope.mainstring = "another world"
-          console.log($scope.mainstring)
+        this.countrySay = function(say){
+
+          console.log("Hello " + say)
         }
 
         this.consoleString = function(){
@@ -77,20 +109,28 @@ angular.module('myApp.view3', ['ngRoute'])
     }
 }])
 
-.directive("console", [function(){
+.directive("state", [function(){
     return {
-      require: "newdirective",
+      restrict: "E",
+      require: "^country",
+      controller: function(){
+        this.stateSay = function(say){
+          console.log("Bay: " + say)
+        }
+      },
       link: function(scope, element,attr,directiveName){
-        directiveName.consoleString()
       }
     }
 }])
 
-.directive("alert", [function(){
+.directive("city", [function(){
   return {
-    require: "newdirective",
-    link: function(scope, element,attr,directiveName){
-      directiveName.alertString()
+    require: ["^state","^country"],
+    link: function(scope, element,attr,cntls){
+      cntls[0].stateSay("John");
+      cntls[1].consoleString();
+      cntls[1].countrySay("World");
+
     }
   }
 }])
@@ -132,7 +172,7 @@ angular.module('myApp.view3', ['ngRoute'])
   }
 }])
 
-// = - bind data accros isolated scopes of directive (shared data acrros several same directive
+// = - bind data across isolated scopes of directive (shared data across several same directive(bind to object)
 .directive('scopeobj',[function(){
   return {
     scope: {
@@ -270,6 +310,12 @@ angular.module('myApp.view3', ['ngRoute'])
     console.log(previous)
     console.log(rejection)
   })
-}]);
+}])
 
-//route change life cycle can be traced by listen routeChangeStart and routeChangeSuccess events:
+//route change life cycle can be traced by listen routeChangeStart and routeChangeSuccess events
+//$event and $log and "Controller as" syntax
+.controller('testCntrl',['$log', function($log){
+  this.myFunct = function(ev){
+    $log.debug(ev);
+  }
+}])
