@@ -8,8 +8,9 @@ describe('myApp.view2 module', function() {
 
     it('should ....', inject(function($controller, $rootScope) {
       //spec body
-      var scope = $rootScope.$new()
-      var view2Ctrl = $controller('View2Ctrl', {$scope:scope });
+      var scope = $rootScope.$new();
+      var promisesGallery = [];
+      var view2Ctrl = $controller('View2Ctrl', {$scope:scope, promisesGallery:promisesGallery});
       expect(view2Ctrl).toBeDefined();
     }));
 

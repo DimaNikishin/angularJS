@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute','ngAnimate'])
 // make ajax call in resolve service and comment ajax call in service(factory)
   // 3 ways of AJAX call:
   // 1 - in servicec via .factory ('weather')
@@ -22,7 +22,7 @@ angular.module('myApp.view2', ['ngRoute'])
       //}],
       promisesGallery: ['$http','$q','$timeout', function($http, $q, $timeout){
         var defer = $q.defer();
-        $timeout(function(){defer.resolve();},2000); //add timeout for listen routeChange events (without it goes to fast)
+        $timeout(function(){defer.resolve();},2); //add timeout for listen routeChange events (without it goes to fast)
         return defer.promise.then(function(){return $http.get('http://localhost:8000/app/gallery.json')
           .success(function(item) {
             return angular.fromJson(item);
@@ -86,4 +86,16 @@ angular.module('myApp.view2', ['ngRoute'])
     console.log(previous);
     console.log(rejection);
   })
-}]);
+}])
+
+//toggle animation via TweenMax
+.animation(".toggle", function(){
+  return {
+    leave: function(element, done){
+      TweenMax.fromTo(element,1, {opacity: 1}, {opacity:0, onComplete:done})
+    },
+    enter: function(element, done){
+      TweenMax.fromTo(element,1, {opacity: 0}, {opacity:1, onComplete:done})
+    }
+  }
+});

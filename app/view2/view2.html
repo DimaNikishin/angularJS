@@ -16,7 +16,7 @@ native and created directives-->
         </div>
       </div>
       <div class="col-sm-12">
-          <div class="gallery" ng-show="isContentVisible">
+          <div class="gallery toggle" ng-if="isContentVisible">
               <weather picture="{{pic.icon}}" ng-repeat="pic in appGallery.pictures" ng-click="viewBackground(appGallery.backgroundImg)"></weather>
               <img ng-src="{{pic.icon}}" ng-repeat="pic in appGallery.pictures">
           </div>

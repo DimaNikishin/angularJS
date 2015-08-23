@@ -12,22 +12,14 @@ angular.module('myApp.view1', ['ngRoute'])
 .directive('contentHoverFunc', [function(){
   return function(scope,element){
       element.bind('mouseenter', function(){
-        var blockIndex = angular.element(this).index();
-        angular.element('.main-menu').children().eq(blockIndex).css({
-          'background-color': '#000000'
-        });
-        angular.element('.content-block').children().eq(blockIndex ).css({
-          'background-color': '#000000'
-        });
+        var blockIndex = element.index();
+        TweenMax.to($('.main-menu').children().eq(blockIndex),1, {'background-color': '#000000'});
+        TweenMax.to($('.content-block').children().eq(blockIndex),1, {'background-color': '#000000'});
       })
       element.bind('mouseleave', function(){
-        var blockIndex = angular.element(this).index();
-        angular.element('.content-block').children().eq(blockIndex).css({
-          'background-color': '#550000'
-        });
-        angular.element('.main-menu').children().eq(blockIndex).css({
-          'background-color': '#550000'
-        });
+        var blockIndex = element.index();
+        TweenMax.to($('.main-menu').children().eq(blockIndex),1, {'background-color': '#550000'});
+        TweenMax.to($('.content-block').children().eq(blockIndex),1, {'background-color': '#550000'});
       })
     }
 }])

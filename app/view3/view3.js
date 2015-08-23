@@ -1,6 +1,6 @@
 'use strict';
-//TODO: create anonim fun to chose between defer.resolve and defer.reject and invent condition (maybe with AJAX error)
-angular.module('myApp.view3', ['ngRoute'])
+
+angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 //add resolve
 //creating a provider and factory in config (every thing that can be inject into controller configured through $provide
 // if you want to configure your oun created provider - it should be created not inside config
@@ -319,3 +319,53 @@ angular.module('myApp.view3', ['ngRoute'])
     $log.debug(ev);
   }
 }])
+
+// angular.copy
+
+.controller("angularCopy",['$scope',function($scope){
+  $scope.Datas = [
+    {name:'name1',job:'JavaDev'},
+    {name:'name2',job:'JSDev'},
+    {name:'name3',job:'GroovyDev'}
+  ];
+  $scope.selected = null;
+  $scope.selectedCopy = null;
+  $scope.selectContact = function(contact){
+    $scope.selected = contact;
+    $scope.selectedCopy = angular.copy(contact);
+  };
+  $scope.changeValue = function(){
+    $scope.selected.name = $scope.selectedCopy.name;
+  }
+}])
+
+// animation via $animate
+.controller("angularAnimates",['$scope',function($scope){
+  $scope.toggle = false;
+}])
+
+.directive("hide",['$animate',function($animate){
+  return function(scope, element, attrs){
+    scope.$watch(attrs.hide, function(val){
+      if(val){
+        $animate.addClass(element, "toggled");
+      }
+      else{
+        $animate.removeClass(element, "toggled");
+      }
+    })
+  }
+}])
+
+.animation(".toggled", function(){
+  return {
+    addClass: function(element, className){
+      TweenMax.to(element, 1, {opacity:0});
+    },
+    removeClass: function(element, className){
+      TweenMax.to(element, 1, {opacity:1});
+    }
+  }
+})
+
+
