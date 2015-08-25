@@ -11,7 +11,12 @@ angular.module('myApp.view2', ['ngRoute','ngAnimate'])
     templateUrl: 'view2/view2.html',
     controller: 'View2Ctrl',
     resolve: {
-      //gallery: ['$http', function($http) {
+      timeout: ['$timeout','$q', function($timeout, $q){//add timeout for listen routeChange events (without it goes to fast)
+        var defer = $q.defer();
+        $timeout(function(){defer.resolve();},2000);
+        return defer.promise;
+      }]
+      //promisesGallery: ['$http', function($http) {
       //  return $http.get('http://localhost:8000/app/gallery.json')
       //    .success(function(item) {
       //      return angular.fromJson(item);
@@ -20,34 +25,41 @@ angular.module('myApp.view2', ['ngRoute','ngAnimate'])
       //      return err;
       //    });
       //}],
-      promisesGallery: ['$http','$q','$timeout', function($http, $q, $timeout){
-        var defer = $q.defer();
-        $timeout(function(){defer.resolve();},2); //add timeout for listen routeChange events (without it goes to fast)
-        return defer.promise.then(function(){return $http.get('http://localhost:8000/app/gallery.json')
-          .success(function(item) {
-            return angular.fromJson(item);
-          })
-          .error(function(err) {
-            return err;
-          });})
-      }]
+      //promisesGallery: ['$http','$q','$timeout', function($http, $q, $timeout){
+      //  var defer = $q.defer();
+      //  $timeout(function(){defer.resolve();},2); //add timeout for listen routeChange events (without it goes to fast)
+      //  return defer.promise.then(function(){return $http.get('http://localhost:8000/app/gallery.json')
+      //    .success(function(item) {
+      //      return angular.fromJson(item);
+      //    })
+      //    .error(function(err) {
+      //      return err;
+      //    });})
+      //}]
     }
   });
 }])
 // main view2 controller with methods
 //weather was deleted from dependency because it was changed to ajax call from resolve
-.controller('View2Ctrl', ['$scope','promisesGallery', function($scope, promisesGallery) {
-  $scope.appGallery = promisesGallery.data;
+//ajax call is moved to controller to cover it with unit test (don't know how to trigger ajax call from route resolve in karma test
+.controller('View2Ctrl', ['$scope','$http', function($scope, $http) {
+  $http.get('http://localhost:8000/app/gallery.json').success(function(data) {
+    $scope.appGallery = data;
+  })
+  .error(function(err) {
+    return err;
+  });
+  //$scope.appGallery = promisesGallery.data;
   //weather.success(function(data){
   //  $scope.weatherObjects = data;
   //})
   $scope.isContentVisible = true;
   $scope.hideContent = function(){
     $scope.isContentVisible = false;
-  }
+  };
   $scope.showContent = function(){
     $scope.isContentVisible = true;
-  }
+  };
   $scope.viewBackground = function(backgroundPic){
     angular.element('.jumbotron').css({
       'background-image': 'url(' +backgroundPic +')',

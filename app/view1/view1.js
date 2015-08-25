@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/Home', {
@@ -13,13 +13,15 @@ angular.module('myApp.view1', ['ngRoute'])
   return function(scope,element){
       element.bind('mouseenter', function(){
         var blockIndex = element.index();
-        TweenMax.to($('.main-menu').children().eq(blockIndex),1, {'background-color': '#000000'});
-        TweenMax.to($('.content-block').children().eq(blockIndex),1, {'background-color': '#000000'});
-      })
+        TweenMax.to($('.main-menu').children().eq(blockIndex),0.5, { className: "+=blackContent" });
+        TweenMax.to($('.content-block').children().eq(blockIndex),0.5, { className: "+=blackContent" });
+        element.addClass("blackContentСrutch"); //added empty class to verify that event triggered in karma test
+      });
       element.bind('mouseleave', function(){
         var blockIndex = element.index();
-        TweenMax.to($('.main-menu').children().eq(blockIndex),1, {'background-color': '#550000'});
-        TweenMax.to($('.content-block').children().eq(blockIndex),1, {'background-color': '#550000'});
+        TweenMax.to($('.main-menu').children().eq(blockIndex),1, { className: "-=blackContent" });
+        TweenMax.to($('.content-block').children().eq(blockIndex),1, { className: "-=blackContent" });
+        element.removeClass("blackContentСrutch"); //removed empty class to verify that event triggered in karma test
       })
     }
 }])

@@ -2,30 +2,31 @@
 
 describe('myApp.view3 module', function() {
 
-    beforeEach(module('myApp.view3'));
+  var view3Ctrl;
+  var scope;
 
-    describe('view3 controller', function(){
+  beforeEach(module('myApp.view3'));
+  beforeEach(inject(function($controller, $rootScope){
+    scope = $rootScope;
+    view3Ctrl = $controller('View3Ctrl', {$scope:scope});
+  }));
 
-        it('should ....', inject(function($controller, $rootScope) {
-            //spec body
-            var scope = $rootScope.$new()
-            var view3Ctrl = $controller('View3Ctrl', {$scope:scope });
-            expect(view3Ctrl).toBeDefined();
-        }));
 
-    });
-});
+  describe('view3 controller', function(){
 
-describe('myApp.view3 filter', function() {
+      it('should ....', inject(function() {
+          //spec body
+          expect(view3Ctrl).toBeDefined();
+      }));
 
-    beforeEach(module('myApp.view3'));
+  });
 
-    describe('view3 reverse filter', function(){
+  describe('view3 reverse filter', function(){
 
-        it('should reverse string', inject(function(reverseFilter) {
-            //spec body
-            expect(reverseFilter("Dima")).toEqual("amiD");
-        }));
+    it('should reverse string', inject(function(reverseFilter) {
+      //spec body
+      expect(reverseFilter("Dima")).toEqual("amiD");
+    }));
 
-    });
+  });
 });

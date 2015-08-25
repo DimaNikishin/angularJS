@@ -24,7 +24,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
             var defer = $q.defer();
             $timeout(function(){
               defer.resolve();
-            }, 200);
+            }, 2000);
             return defer.promise
           }
         }
@@ -66,7 +66,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
     $scope.psysdata = ['DND','MMO','Single'];
     $scope.newAllertMes = function(message){
       alert(message);
-    }
+    };
     $scope.messageReverted = function(message){
       if(message === undefined){
         return ""
@@ -74,20 +74,20 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       else{
         return message.split("").reverse().join("")
       }
-    }
+    };
     $scope.alertmessage = function(name, message){
       alert(name + message);
     }
 }])
 
 .controller('View4Ctrl', ['$scope', 'Data', function($scope, Data) {
-    $scope.message = "data2"
-    $scope.data = Data
+    $scope.message = "data2";
+    $scope.data = Data;
 }])
 
 .controller('View5Ctrl', ['$scope', 'Data', function($scope, Data) {
-    $scope.message = "data3"
-    $scope.data = Data
+    $scope.message = "data3";
+    $scope.data = Data;
 }])
 // 2 directive connected to 'newdirective' and use it controllers (functions)
 .directive("country",[function(){
@@ -95,12 +95,11 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       restrict: "E",
       scope: {},
       controller: function($scope){
-        $scope.mainstring = "hello world"
+        $scope.mainstring = "hello world";
 
         this.countrySay = function(say){
-
           console.log("Hello " + say)
-        }
+        };
 
         this.consoleString = function(){
           console.log($scope.mainstring)
@@ -190,7 +189,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       flawor: '&',
       apple: '=name'
     },
-    template: '<input type="text" ng-model="data">' + '<button ng-click="flawor({message:data})">{{data}}</button>' + '<div>{{apple}}</div>',
+    template: '<input type="text" ng-model="data">' + '<button ng-click="flawor({message:data})">{{data}}</button>' + '<div>{{apple}}</div>'
 
   }
 }])
@@ -225,7 +224,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 .controller('testCntr',['$scope',function($scope){
   this.sayHi = function(){
     alert("Hi");
-  }
+  };
   return $scope.testCntr = this;
 }])
 
@@ -242,13 +241,13 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
         divBlock.css({'background-color':'#ffffff'});
       }
     })
-  }
+  };
   return{
     restrict: "E",
     replace: true,
     template: '<div><input type=\"text\" ng-model=\"model.data\"></div>',
     compile: function(templateE){
-      templateE.append(divBlock)
+      templateE.append(divBlock);
       return link;
     }
   }
@@ -261,7 +260,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 })
 
 .directive('templates',['$templateCache',function($templateCache){
-    $templateCache.get("exemplar.html")
+    $templateCache.get("exemplar.html");
   return {
     restrict: "E",
     scope: {},
@@ -286,7 +285,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
   $scope.func = function(){defer.promise
     .then(function(par){
       if (par === ''){
-        alert("How!")
+        alert("How!");
         return("it was empty")
       }
       else{
@@ -295,7 +294,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
     })
     .then(function(par){
       alert(par);
-    })}
+    })};
   defer.resolve("");
 }])
 
@@ -305,10 +304,10 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 //because it is only for test and learn of angular it is located in sanbox (this cntrl listening all $routeChangeError and not specified for routeChange to view3
 .controller('AlternativeCntrl',['$scope','$rootScope', function($scope, $rootScope){
   $rootScope.$on('$routeChangeError',function(event, current, previous, rejection){
-    console.log(event)
-    console.log(current)
-    console.log(previous)
-    console.log(rejection)
+    console.log(event);
+    console.log(current);
+    console.log(previous);
+    console.log(rejection);
   })
 }])
 
@@ -366,6 +365,6 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       TweenMax.to(element, 1, {opacity:1});
     }
   }
-})
+});
 
 
