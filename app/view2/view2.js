@@ -43,7 +43,7 @@ angular.module('myApp.view2', ['ngRoute','ngAnimate'])
 //weather was deleted from dependency because it was changed to ajax call from resolve
 //ajax call is moved to controller to cover it with unit test (don't know how to trigger ajax call from route resolve in karma test
 .controller('View2Ctrl', ['$scope','$http', function($scope, $http) {
-  $http.get('http://localhost:8000/app/gallery.json').success(function(data) {
+  $http.get('http://localhost:8080/app/gallery.json').success(function(data) {
     $scope.appGallery = data;
   })
   .error(function(err) {

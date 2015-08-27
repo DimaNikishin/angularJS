@@ -10,7 +10,7 @@ describe('myApp.view2 module', function() {
     scope = $rootScope;
     view2Ctrl = $controller('View2Ctrl', {$scope:scope});
     httpBackend = $httpBackend;
-    httpBackend.expectGET('http://localhost:8000/app/gallery.json').
+    httpBackend.expectGET('http://localhost:8080/app/gallery.json').
       respond([{name: 'AJAX'}, {name: 'CALL'}, {name: 'TEST'}]);
   }}));
 
