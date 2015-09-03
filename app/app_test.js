@@ -5,7 +5,10 @@ describe('myApp module', function() {
   var scope, indexCntrl, route;
   beforeEach(module('myApp'));
   beforeEach(inject(function($controller, $rootScope, $route){
-    scope = $rootScope;
+//создаю в rootScope обьект чайлд скоуп(scope) через функцию .$new() полсе чего передаю этот скоуп в функцию контструктор контлера IndexCntrl,
+//которая создает проперити этому обьекту чайлд скопу и после чего тестирую на наличей этих пропертей(проверяю что конструктор работает)
+//если бы у этого обьекта чайлд скоуп(scope) был вложеный обьект чайлд скоуп(scopeСhild) - создавал бы его через функцию .$new() уже дочернего скоупа(scope) (scope.$new()) а не главного($rootScope)
+    scope = $rootScope.$new();
     indexCntrl = $controller('indexCntrl', {$scope:scope});
     route = $route;
   }));
