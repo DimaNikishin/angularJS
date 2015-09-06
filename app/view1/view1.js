@@ -9,6 +9,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngAnimate'])
   });
 }])
 // first directive with hover functionality for main content
+// try to don't use mouseenter animation via angular, do it with JQuery
 .directive('contentHoverFunc', [function(){
   return function(scope,element){
       element.bind('mouseenter', function(){
