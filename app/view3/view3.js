@@ -24,7 +24,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
             var defer = $q.defer();
             $timeout(function(){
               defer.resolve();
-            }, 2000);
+            }, 20);
             return defer.promise
           }
         }
@@ -365,6 +365,51 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       TweenMax.to(element, 1, {opacity:1});
     }
   }
-});
+})
 
+// forms and validation
+.directive("text",[function(){
+  var INTEGER_REGEXP = /^\-?\D+@example\.com$/;
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$validators.email = function(modelValue) {
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty models to be valid
+          return true;
+        }
 
+        if (INTEGER_REGEXP.test(modelValue)) {
+          // it is valid
+          return true;
+        }
+
+        // it is invalid
+        return false;
+      };
+    }
+  };
+}])
+
+.directive("url",[function(){
+  var INTEGER_REGEXP = /^\-?\D+@example\.com$/;
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$validators.url = function(modelValue) {
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty models to be valid
+          return true;
+        }
+
+        if (INTEGER_REGEXP.test(modelValue)) {
+          // it is valid
+          return true;
+        }
+
+        // it is invalid
+        return false;
+      };
+    }
+  };
+}]);
