@@ -88,3 +88,37 @@ h4, h2, .jumbotron_heading_markup {
     background-color: #000000
 }
 
+.product-types {
+    height: 750px;
+}
+
+.product-list {
+    height: 500px;
+    border-radius: 5px !important;
+    margin-bottom: 50px;
+}
+
+.product-menu{
+    margin-top: 100px;
+}
+
+.case-details {
+    display: table;
+    height: 200px;
+}
+
+.case-details > .header {
+    display:table-cell;
+    vertical-align:bottom !important;
+}
+
+.market-basket > h4 {
+    display: block;
+    text-align: right;
+}
+
+.fixed{
+    position: fixed;
+    margin-top: 0px !important;
+}
+
