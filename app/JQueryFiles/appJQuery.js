@@ -25,7 +25,11 @@ $(document).ready(function(){
     $(this).scroll(function(){
         if($(document).scrollTop() > $(".page-header").innerHeight()) {
             $(".navbar").addClass("navbar-fixed-top")
+            $(".product-menu").addClass("fixed")
         }
-        else { $(".navbar").removeClass("navbar-fixed-top") }
+        else {
+          $(".navbar").removeClass("navbar-fixed-top")
+          $(".product-menu").removeClass("fixed")
+        }
     });
 });
