@@ -39,14 +39,16 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 // create provider with $get and $set method and configured it data by $setSecondName and configuredTestProvider
     configuredTestProvider.$setSecondName('Jonny')
 }])
-
+//value service
+.value('valueName','valueData')
+//constant service
+.constant('valueName','valueData')
 //created serivece with data
 .factory('Data', function(){
     return {message: "I'am not only one"}
 })
-.service('servData', function(){
-  this.products = {title: "apple"}
-})
+//service start constructor by new operator and pass in it arguments from dependencies
+.service('servData', ['valueName',UnicornLauncher])
 //created filter
 .filter('reverse', function(){
     return function(text){
@@ -59,7 +61,7 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
     $injector.invoke(function(Data,configuredTest, servData){
       $scope.name = configuredTest.name;
       $scope.data = Data;
-      $scope.title = servData.products.title;
+      $scope.title = servData.launchedCount;
     });
     $scope.messages = "data1";
     $scope.mainstring = "anotherData";
@@ -413,3 +415,12 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
     }
   };
 }]);
+
+function UnicornLauncher(valueName) {
+
+  this.launchedCount = valueName;
+  this.launch = function() {
+
+    this.launchedCount++;
+  }
+}
