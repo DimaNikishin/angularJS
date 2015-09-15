@@ -68,7 +68,7 @@
   display: block;
   background-color: #222;
 }
-
+/*never set style directly to h tags!!! */
 h4, h2, .jumbotron_heading_markup {
   display: block;
   text-align: center;
@@ -89,22 +89,24 @@ h4, h2, .jumbotron_heading_markup {
 }
 
 .product-types {
-    height: 750px;
+    height: 1770px;
+    border-right: solid;
 }
 
 .product-list {
-    height: 500px;
     border-radius: 5px !important;
     margin-bottom: 50px;
 }
 
 .product-menu{
     margin-top: 100px;
+    text-align: center!important;
 }
 
 .case-details {
     display: table;
     height: 200px;
+    border-bottom: solid;
 }
 
 .case-details > .header {
@@ -117,8 +119,43 @@ h4, h2, .jumbotron_heading_markup {
     text-align: right;
 }
 
-.fixed{
+.fixed {
     position: fixed;
-    margin-top: 0px !important;
+    margin-top: -70px !important;
+    width: 207px;
 }
 
+.product {
+    margin: 40px;
+    height: 300px;
+    border-radius: 5px;
+    border: #000088 solid;
+    padding: 0px !important;
+}
+
+.product-name {
+    border-bottom: #000088 dashed;
+    width: 184px;
+    height: 90px;
+}
+
+.product-price {
+    width: 130px;
+    height: 60px;
+    margin-left: 30px;
+    margin-right: 24px !important;
+}
+
+.shop-cart {
+    margin-left: 50px;
+}
+
+.price-property {
+    margin-top: 30px;
+    margin-left: 15px
+}
+
+.property-checkbox {
+    float: right;
+    margin-right: 20px!important;
+}
