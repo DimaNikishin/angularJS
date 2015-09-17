@@ -68,7 +68,8 @@
   display: block;
   background-color: #222;
 }
-/*never set style directly to h tags!!! */
+/*never set style directly to h tags!!!
+ start use font-size properties instead of <h> tags*/
 h4, h2, .jumbotron_heading_markup {
   display: block;
   text-align: center;
@@ -89,8 +90,9 @@ h4, h2, .jumbotron_heading_markup {
 }
 
 .product-types {
-    height: 1770px;
+    height: 3150px;
     border-right: solid;
+    padding: 0px !important;
 }
 
 .product-list {
@@ -101,6 +103,7 @@ h4, h2, .jumbotron_heading_markup {
 .product-menu{
     margin-top: 100px;
     text-align: center!important;
+    background-color: #ededed;
 }
 
 .case-details {
@@ -122,40 +125,80 @@ h4, h2, .jumbotron_heading_markup {
 .fixed {
     position: fixed;
     margin-top: -70px !important;
-    width: 207px;
+    width: 237px;
 }
 
 .product {
     margin: 40px;
-    height: 300px;
-    border-radius: 5px;
+    height: 500px;
     border: #000088 solid;
     padding: 0px !important;
+    background-color: #ededed;
+}
+
+.products {
+    border-bottom: 1px solid;
+}
+
+li.products > a {
+    text-align: left !important;
+    font-size: 18px !important;
+}
+
+li.products > a > span {
+    margin-left: 60px!important;
+}
+
+.product-menu > div {
+    text-align: left !important;
+    font-size: 22px !important;
+    border-bottom: 1px solid;
 }
 
 .product-name {
     border-bottom: #000088 dashed;
-    width: 184px;
+    width: 279px;
     height: 90px;
 }
 
 .product-price {
-    width: 130px;
+    width: 210px;
     height: 60px;
     margin-left: 30px;
-    margin-right: 24px !important;
+    margin-right: 30px !important;
+    text-align: left !important;
+    font-size: 36px !important;
+    margin-top: 15px;
 }
 
+
 .shop-cart {
-    margin-left: 50px;
+    margin-left: 110px;
 }
 
 .price-property {
-    margin-top: 30px;
-    margin-left: 15px
+    margin-top: 15px;
+    margin-left: 0px;
+    border-bottom: 1px solid;
+    text-align: left !important;
+    font-size: 20px !important;
 }
 
 .property-checkbox {
     float: right;
     margin-right: 20px!important;
 }
+
+.details {
+    margin-top: 15px;
+    text-align: center !important;
+    font-size: 26px !important;
+}
+
+.default-property {
+    margin-top: 30px;
+    margin-left: 0px;
+    text-align: center !important;
+    font-size: 16px !important;
+}
+
