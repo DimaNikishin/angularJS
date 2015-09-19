@@ -3,19 +3,22 @@
         <div class="col-sm-2 product-types">
             <ul class="nav nav-pills nav-stacked product-menu">
                 <div>Selected industrial sector:</div>
-                <li class="products" ng-repeat="sector in industrySectors"><a href="javascript:void(0)">{{sector}}<span class="badge">4</span></a></li>
+                <li class="products" ng-repeat="sector in industrySectors"><a href="javascript:void(0)">{{sector.name}}<span class="badge">{{sector.selected.length}}</span></a></li>
             </ul>
         </div>
         <div class="col-sm-10 main-content">
             <div class="col-sm-12 case-details">
-                <div class="header">
-                    <h3>ProductN</h3>
-                    <p>Product details</p>
+                <div class="header" ng-repeat="sector in industrySectors">
+                    <h3>{{sector.name}}</h3>
+                    <div ng-show="showDetails">
+                        <p ng-hide="selectedProducts(sector.selected)">Nothing is selected</p>
+                        <p ng-show="selectedProducts(sector.selected)">{{sector.selected | selectedNames}}</p>
+                    </div>
                 </div>
                 <div class="market-basket">
                     <h4>
                         <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart <br>
-                        <a href="javascript:void(0)">Details</a>
+                        <a href="javascript:void(0)" ng-click="showDetails = !showDetails">Details</a>
                     </h4>
                 </div>
             </div>

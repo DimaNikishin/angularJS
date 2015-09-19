@@ -9,6 +9,17 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
   });
 }])
 
+.filter('selectedNames', function(){
+  return function(list){
+    var string = "";
+    function plansList(element, index, array){
+      string = string + element.name + "; "
+    }
+    list.forEach(plansList);
+    return string
+  }
+})
+
 .factory('HealthCareSector', ['$http', function($http) {
   return $http.get('http://localhost:8080/app/Healthcare Sector.json')
     .success(function(data) {
@@ -20,10 +31,19 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 }])
 
 .controller('View4Ctrl', ['$scope','HealthCareSector',function($scope,HealthCareSector) {
-  $scope.industrySectors = ['Healthcare Sector','Technology Sector','Basic Materials Sector']
+  $scope.showDetails = true;
+  $scope.industrySectors = [{name:"Healthcare Sector", selected:[{"name": "Biotechnology", "price":"962.9", "selected":""}, {"name": "Medical Practitioners", "price":"2480.0", "selected":""}]},{name:"Technology Sector", selected:[]},{name:"Basic Materials Sector", selected:[]}];
   HealthCareSector.success(function(data){
     $scope.HealthCareSectorData = data;
   });
+  $scope.selectedProducts = function(selectedList){
+    if(selectedList.length === 0){
+      return false;
+    }
+    else {
+      return true;
+    }
+  };
   //TODO: make more detailed inspection
   $scope.showEnabledProperty = function(property){
     if(property === undefined){
@@ -37,7 +57,6 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         return true;
       }
     }
-
   }
 }])
 

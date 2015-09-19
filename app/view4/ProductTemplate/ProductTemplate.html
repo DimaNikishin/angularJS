@@ -1,10 +1,9 @@
 <div class="product col-sm-3">
     <div class="product-name">{{planName}}</div>
-    <div class="product-price">{{price}}<a class="shop-cart" href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span></a></div>
+    <div class="product-price">{{price | currency}}<a class="shop-cart" href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span></a></div>
     <div class="price-property">{{propertyOne}}<input type="checkbox" class="property-checkbox" ng-show="showPropFunction({property:propertyOne})"><br>{{propertyTwo}}<input type="checkbox" class="property-checkbox" ng-show="showPropFunction({property:propertyTwo})"></div>
     <div class="details">Details
         <div class="default-property">{{defaultPropertyOne}}</div>
         <div class="default-property">{{defaultPropertyTwo}}</div>
-
     </div>
 </div>
