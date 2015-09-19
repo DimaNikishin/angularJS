@@ -20,31 +20,7 @@
                 </div>
             </div>
             <div class="col-sm-12 product-list">
-                <product></product>
-                <div class="product col-sm-3">
-                    <div class="product-name">
-                        <h2>Plan name</h2>
-                    </div>
-                    <div class="product-price">400<a class="shop-cart" href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span></a></div>
-                    <div class="price-property">property one  <input type="checkbox" class="property-checkbox"><br>property two  <input type="checkbox" class="property-checkbox"></div>
-                    <div class="details">Details
-                        <div class="default-property">Default property one</div>
-                        <div class="default-property">Default property two</div>
-
-                    </div>
-                </div>
-                <div class="product col-sm-3">
-                    <div class="product-name">
-                        <h2>Plan name</h2>
-                    </div>
-                    <div class="product-price">400<a class="shop-cart" href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span></a></div>
-                    <div class="price-property">property one  <input type="checkbox" class="property-checkbox"><br>property two  <input type="checkbox" class="property-checkbox"></div>
-                    <div class="details">Details
-                        <div class="default-property">Default property one</div>
-                        <div class="default-property">Default property two</div>
-
-                    </div>
-                </div>
+                <product ng-repeat="sectors in HealthCareSectorData.list" name="{{sectors.name}}" price="{{sectors.price}}" property-One="{{sectors.details.PropertyOne.name}}" property-Two="{{sectors.details.PropertyTwo.name}}" show-Prop-Function="showEnabledProperty(property)"></product>
             </div>
         </div>
     </div>
