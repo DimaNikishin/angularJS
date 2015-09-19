@@ -8,6 +8,18 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     controller: 'View4Ctrl'
   });
 }])
-.controller('View4Ctrl', ['$scope',function($scope) {
 
+.controller('View4Ctrl', ['$scope',function($scope) {
+  $scope.industrySectors = ['Healthcare Sector','Technology Sector','Basic Materials Sector']
+
+}])
+
+.directive('product',[function(){
+  return {
+    scope: {},
+    templateUrl: 'view4/ProductTemplate/ProductTemplate.html',
+    link: function(scope, element, attrs){
+      scope.flawor = attrs.name;
+    }
+  }
 }]);

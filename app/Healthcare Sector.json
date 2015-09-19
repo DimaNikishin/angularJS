@@ -1,0 +1,211 @@
+{
+  "list": [
+    {
+      "name": "Biotechnology",
+      "price":"962.9",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Medical Practitioners",
+      "price":"2480.0",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Hospitals",
+      "price":"743.9",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Home Health Care",
+      "price":"341.0",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Drugs - Generic",
+      "price":"542.3",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Specialized Health Services",
+      "price":"178.1",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Drug Related Products",
+      "price":"612.1",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Medical Laboratories & Research",
+      "price":"874.9",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Diagnostic Substances",
+      "price":"377.3",
+      "selected":"",
+      "details": {
+        "Default property one":{
+          "name":"",
+          "value":""
+        },
+        "Default property two":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        },
+        "Property one":{
+          "name":"",
+          "value":""
+        }
+      }
+    }
+  ]
+}
