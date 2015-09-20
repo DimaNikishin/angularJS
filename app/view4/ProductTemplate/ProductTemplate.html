@@ -1,6 +1,10 @@
 <div class="product col-sm-3">
     <div class="product-name">{{planName}}</div>
-    <div class="product-price">{{price | currency}}<a class="shop-cart" href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span></a></div>
+    <div class="product-price">
+        {{price | currency}}
+        <a class="shop-cart" href="javascript:void(0)" ng-click="addFunction({sectorName:planName})" ng-hide="hideBuyButton(selected)"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+        <a class="shop-cart" href="javascript:void(0)" ng-show="hideBuyButton(selected)"><span class="glyphicon glyphicon-remove-sign"></span></a>
+    </div>
     <div class="price-property">{{propertyOne}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(propertyOne)"><br>{{propertyTwo}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(propertyTwo)"></div>
     <div class="details">Details
         <div class="default-property">{{defaultPropertyOne}}</div>
