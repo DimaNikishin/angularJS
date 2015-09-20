@@ -3,7 +3,8 @@
     {
       "name": "Biotechnology",
       "price":"962.9",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -26,7 +27,8 @@
     {
       "name": "Medical Practitioners",
       "price":"2480.0",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -49,7 +51,8 @@
     {
       "name": "Hospitals",
       "price":"743.9",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -72,7 +75,8 @@
     {
       "name": "Home Health Care",
       "price":"341.0",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -95,7 +99,8 @@
     {
       "name": "Drugs - Generic",
       "price":"542.3",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -118,7 +123,8 @@
     {
       "name": "Specialized Health Services",
       "price":"178.1",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -141,7 +147,8 @@
     {
       "name": "Drug Related Products",
       "price":"612.1",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -164,7 +171,8 @@
     {
       "name": "Medical Laboratories & Research",
       "price":"874.9",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",
@@ -187,7 +195,8 @@
     {
       "name": "Diagnostic Substances",
       "price":"377.3",
-      "selected":"",
+      "selected":"false",
+      "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"",

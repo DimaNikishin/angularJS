@@ -32,9 +32,10 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 
 .controller('View4Ctrl', ['$scope','HealthCareSector',function($scope,HealthCareSector) {
   $scope.showDetails = true;
-  $scope.industrySectors = [{name:"Healthcare Sector", selected:[{"name": "Biotechnology", "price":"962.9", "selected":""}, {"name": "Medical Practitioners", "price":"2480.0", "selected":""}]},{name:"Technology Sector", selected:[]},{name:"Basic Materials Sector", selected:[]}];
+  $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
   HealthCareSector.success(function(data){
     $scope.HealthCareSectorData = data;
+    $scope.industrySectors[0].list = data.list;
   });
   $scope.selectedProducts = function(selectedList){
     if(selectedList.length === 0){
@@ -44,20 +45,6 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       return true;
     }
   };
-  //TODO: make more detailed inspection
-  $scope.showEnabledProperty = function(property){
-    if(property === undefined){
-      return false;
-    }
-    else{
-      if(property.length === 0){
-        return false;
-      }
-      else {
-        return true;
-      }
-    }
-  }
 }])
 
 .directive('product',[function(){
@@ -68,12 +55,24 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       propertyOne: '@',
       propertyTwo: '@',
       defaultPropertyOne: '@',
-      defaultPropertyTwo: '@',
-      showPropFunction: '&'
+      defaultPropertyTwo: '@'
     },
     templateUrl: 'view4/ProductTemplate/ProductTemplate.html',
     link: function(scope, element, attrs){
-
+      //TODO: make more detailed inspection
+      scope.showEnabledProperty = function(property){
+        if(property === undefined){
+          return false;
+        }
+        else{
+          if(property.length === 0){
+            return false;
+          }
+          else {
+            return true;
+          }
+        }
+      }
     }
   }
 }]);
