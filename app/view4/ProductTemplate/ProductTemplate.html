@@ -3,11 +3,11 @@
     <div class="product-price">
         {{price | currency}}
         <a class="shop-cart" href="javascript:void(0)" ng-click="addFunction({sectorName:planName})" ng-hide="hideBuyButton(selected)"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-        <a class="shop-cart" href="javascript:void(0)" ng-show="hideBuyButton(selected)"><span class="glyphicon glyphicon-remove-sign"></span></a>
+        <a class="shop-cart" href="javascript:void(0)" ng-click="removeFunction({sectorName:planName})" ng-show="hideBuyButton(selected)"><span class="glyphicon glyphicon-remove-sign"></span></a>
     </div>
-    <div class="price-property">{{propertyOne}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(propertyOne)"><br>{{propertyTwo}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(propertyTwo)"></div>
+    <div class="price-property">{{formStrintToObject(details).PropertyOne.name}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(formStrintToObject(details).PropertyOne.name)"><br>{{formStrintToObject(details).PropertyTwo.name}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(formStrintToObject(details).PropertyTwo.name)"></div>
     <div class="details">Details
-        <div class="default-property">{{defaultPropertyOne}}</div>
-        <div class="default-property">{{defaultPropertyTwo}}</div>
+        <div class="default-property">{{formStrintToObject(details).DefaultPropertyOne.name}}<br>{{formStrintToObject(details).DefaultPropertyOne.value}}</div>
+        <div class="default-property">{{formStrintToObject(details).DefaultPropertyTwo.name}}<br>{{formStrintToObject(details).DefaultPropertyTwo.value}}</div>
     </div>
 </div>

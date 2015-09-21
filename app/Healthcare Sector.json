@@ -7,12 +7,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"10.10"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"0.11"
         },
         "PropertyOne":{
           "name":"",
@@ -31,12 +31,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"3.22"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"-1.1"
         },
         "PropertyOne":{
           "name":"",
@@ -55,12 +55,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"28.75"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"3.31"
         },
         "PropertyOne":{
           "name":"",
@@ -79,12 +79,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"0.99"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"0.01"
         },
         "PropertyOne":{
           "name":"",
@@ -103,12 +103,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"14.13"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"0.76"
         },
         "PropertyOne":{
           "name":"",
@@ -127,12 +127,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"32.11"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"3.11"
         },
         "PropertyOne":{
           "name":"",
@@ -151,12 +151,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"4.15"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"-2.33"
         },
         "PropertyOne":{
           "name":"",
@@ -175,12 +175,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"17.11"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"2.22"
         },
         "PropertyOne":{
           "name":"",
@@ -199,12 +199,12 @@
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Long-Term Debt to Equity",
+          "value":"14.11"
         },
         "DefaultPropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"1 Day Price Change %",
+          "value":"0.78"
         },
         "PropertyOne":{
           "name":"",

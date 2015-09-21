@@ -9,13 +9,23 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
   });
 }])
 //filter for displaying sectors names from array with selected sectors
+//sort arrays items by it length
 .filter('selectedNames', function(){
   return function(list){
     var string = "";
-    function plansList(element, index, array){
+    list.sort(function compare(a, b) {
+      if (a.name.length < b.name.length) {
+        return -1;
+      }
+      else if (a.name.length > b.name.length) {
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    }).forEach(function plansList(element, index, array){
       string = string + element.name + "; "
-    }
-    list.forEach(plansList);
+    });
     return string
   }
 })
@@ -36,7 +46,6 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
   $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
   HealthCareSector.success(function(data){
-    $scope.HealthCareSectorData = data;
     $scope.industrySectors[0].list = data.list;
   });
 //add function which search by name for selected sector in array with all sectors and pushing selected into array with selected sectors
@@ -54,7 +63,34 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     //adding sector into appropriate industry type
     if(searchResult[0].sectorType === "HC"){
       $scope.industrySectors[0].selected.push(searchResult[0]);
-
+    }
+    else if(searchResult[0].sectorType === "TC"){
+      $scope.industrySectors[1].selected.push(searchResult[0]);
+    }
+    else{
+      $scope.industrySectors[2].selected.push(searchResult[0]);
+    }
+  };
+//TODO: rewrite comments
+  $scope.removeFunction = function(sectorName){
+    function sectorSearch(element, index, array){
+      for (var name in element){
+        if(element.name === sectorName){
+          //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
+          element.selected = false;
+          return element;
+        }
+      }
+    }
+    var searchResult = $scope.industrySectors[0].list.filter(sectorSearch);
+    //removing sector from appropriate industry type
+    if(searchResult[0].sectorType === "HC"){
+      var removeItem = $scope.industrySectors[0].selected.filter(sectorSearch);
+      var indexOfRemoveItem = $scope.industrySectors[0].selected.indexOf(removeItem[0])
+      var lastItem = $scope.industrySectors[0].selected[$scope.industrySectors[0].selected.length-1];
+      $scope.industrySectors[0].selected[indexOfRemoveItem] = lastItem;
+      $scope.industrySectors[0].selected[$scope.industrySectors[0].selected.length-1] = removeItem[0];
+      $scope.industrySectors[0].selected.pop();
     }
     else if(searchResult[0].sectorType === "TC"){
       $scope.industrySectors[1].selected.push(searchResult[0]);
@@ -74,17 +110,16 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 }])
 //directive for displaying industry sectors
 //create directive's functions and bind values from DOM to directive's template variables
+//bind to directive variable object in string format and convert it into object in template
 .directive('product',[function(){
   return {
     scope: {
       planName: '@name',
       price: '@',
       selected: '@',
-      propertyOne: '@',
-      propertyTwo: '@',
-      defaultPropertyOne: '@',
-      defaultPropertyTwo: '@',
-      addFunction: '&'
+      details: '@',
+      addFunction: '&',
+      removeFunction: '&'
     },
     templateUrl: 'view4/ProductTemplate/ProductTemplate.html',
     link: function(scope, element, attrs){
@@ -105,6 +140,10 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       scope.hideBuyButton = function(value){
         var myBool = value === "true";
         return myBool;
+      }
+      scope.formStrintToObject = function(string){
+        var object = eval("(" + string + ')');
+        return object;
       }
     }
   }
