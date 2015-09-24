@@ -3,7 +3,7 @@
         <div class="col-sm-2 product-types">
             <ul class="nav nav-pills nav-stacked product-menu">
                 <div>Selected industrial sector:</div>
-                <li class="products" ng-repeat="sector in industrySectors"><a href="javascript:void(0)">{{sector.name}}<span class="badge">{{sector.selected.length}}</span></a></li>
+                <li class="products" ng-repeat="sector in industrySectors"><a href="javascript:void(0)" ng-click="selectedSector(sector.name)">{{sector.name}}<span class="badge">{{sector.selected.length}}</span></a></li>
             </ul>
         </div>
         <div class="col-sm-10 main-content">
@@ -23,7 +23,9 @@
                 </div>
             </div>
             <div class="col-sm-12 product-list">
-                <product ng-repeat="sectors in industrySectors[0].list" name="{{sectors.name}}" price="{{sectors.price}}" selected="{{sectors.selected}}" details="{{sectors.details}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
+                <product ng-if="selectedHC" ng-repeat="sectors in industrySectors[0].list" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
+                <product ng-if="selectedTC" ng-repeat="sectors in industrySectors[1].list" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
+                <product ng-if="selectedBMC" ng-repeat="sectors in industrySectors[2].list" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
             </div>
         </div>
     </div>

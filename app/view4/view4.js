@@ -40,12 +40,23 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     });
 }])
 
-.controller('View4Ctrl', ['$scope','HealthCareSector',function($scope,HealthCareSector) {
+.factory('additionalSectors', ['$http', function($http) {
+  return $http.get('http://localhost:8080/app/Additional Sectors.json')
+    .success(function(data) {
+      return angular.fromJson(data);
+    })
+    .error(function(err) {
+      return err;
+    });
+}])
+
+.controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors',function($scope,HealthCareSector,additionalSectors) {
   $scope.showDetails = true;
 //array with selected sectors and all sectors for each industry type
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
   $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
   HealthCareSector.success(function(data){
+    $scope.selectedHC = true;
     $scope.industrySectors[0].list = data.list;
   });
 //add function which search by name for selected sector in array with all sectors and pushing selected into array with selected sectors
@@ -59,7 +70,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         }
       }
     }
-    var searchResult = $scope.industrySectors[0].list.filter(sectorSearch);
+    var searchResult = (function(){
+      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
+      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
+      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
+    })();
     //adding sector into appropriate industry type
     if(searchResult[0].sectorType === "HC"){
       $scope.industrySectors[0].selected.push(searchResult[0]);
@@ -82,7 +97,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         }
       }
     }
-    var searchResult = $scope.industrySectors[0].list.filter(sectorSearch);
+    var searchResult = (function(){
+      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
+      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
+      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
+    })();
     //removing sector from appropriate industry type
     if(searchResult[0].sectorType === "HC"){
       var removeItem = $scope.industrySectors[0].selected.filter(sectorSearch);
@@ -93,10 +112,20 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       $scope.industrySectors[0].selected.pop();
     }
     else if(searchResult[0].sectorType === "TC"){
-      $scope.industrySectors[1].selected.push(searchResult[0]);
+      var removeItem = $scope.industrySectors[1].selected.filter(sectorSearch);
+      var indexOfRemoveItem = $scope.industrySectors[1].selected.indexOf(removeItem[0])
+      var lastItem = $scope.industrySectors[1].selected[$scope.industrySectors[1].selected.length-1];
+      $scope.industrySectors[1].selected[indexOfRemoveItem] = lastItem;
+      $scope.industrySectors[1].selected[$scope.industrySectors[1].selected.length-1] = removeItem[0];
+      $scope.industrySectors[1].selected.pop();
     }
     else{
-      $scope.industrySectors[2].selected.push(searchResult[0]);
+      var removeItem = $scope.industrySectors[2].selected.filter(sectorSearch);
+      var indexOfRemoveItem = $scope.industrySectors[2].selected.indexOf(removeItem[0])
+      var lastItem = $scope.industrySectors[2].selected[$scope.industrySectors[2].selected.length-1];
+      $scope.industrySectors[2].selected[indexOfRemoveItem] = lastItem;
+      $scope.industrySectors[2].selected[$scope.industrySectors[2].selected.length-1] = removeItem[0];
+      $scope.industrySectors[2].selected.pop();
     }
   };
   $scope.selectedProducts = function(selectedList){
@@ -107,6 +136,42 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       return true;
     }
   };
+  $scope.downloadSectors = function(){
+    if($scope.industrySectors[1].list.length === 0 && $scope.industrySectors[2].list.length === 0){
+      additionalSectors.success(function(data){
+        $scope.industrySectors[1].list = data.TechnologyList;
+        $scope.industrySectors[2].list = data.BasicMaterialsList;
+      });
+    }
+    else {
+      if($scope.industrySectors[1].list.length === 0){
+        $scope.industrySectors[1].list = data.TechnologyList;
+      }
+      else if($scope.industrySectors[2].list.length === 0){
+        $scope.industrySectors[2].list = data.BasicMaterialsList;
+      }
+    }
+  };
+  $scope.selectedSector = function(sectorName){
+    if(sectorName == $scope.industrySectors[0].name){
+      $scope.selectedHC = true;
+      $scope.selectedTC = false;
+      $scope.selectedBMC = false;
+      $scope.downloadSectors()
+    }
+    else if (sectorName == $scope.industrySectors[1].name){
+      $scope.selectedHC = false;
+      $scope.selectedTC = true;
+      $scope.selectedBMC = false;
+      $scope.downloadSectors()
+    }
+    else{
+      $scope.selectedHC = false;
+      $scope.selectedTC = false;
+      $scope.selectedBMC = true;
+      $scope.downloadSectors()
+    }
+  }
 }])
 //directive for displaying industry sectors
 //create directive's functions and bind values from DOM to directive's template variables
@@ -114,10 +179,8 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 .directive('product',[function(){
   return {
     scope: {
-      planName: '@name',
-      price: '@',
+      sector: '@',
       selected: '@',
-      details: '@',
       addFunction: '&',
       removeFunction: '&'
     },
@@ -138,7 +201,7 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         }
       }
       scope.hideBuyButton = function(value){
-        var myBool = value === "true";
+        var myBool = value == "true";
         return myBool;
       }
       scope.formStrintToObject = function(string){

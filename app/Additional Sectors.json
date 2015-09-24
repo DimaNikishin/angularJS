@@ -1,0 +1,270 @@
+{
+  "TechnologyList": [
+    {
+      "name": "Wireless Communications",
+      "price":"1962.9",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"17.10"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"1.60"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Application Software",
+      "price":"1380.0",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"7.22"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"3.1"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Diversified Electronics",
+      "price":"543.9",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"13.75"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"1.01"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Telecom Services - Foreign",
+      "price":"1541.0",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"7.99"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"3.41"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Personal Computers",
+      "price":"2372.3",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"17.13"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"4.76"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Computer Peripherals",
+      "price":"778.1",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"11.11"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"0.11"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Computer Based Systems",
+      "price":"1332.1",
+      "selected":"false",
+      "sectorType":"TC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"13.15"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"7.33"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    }
+  ],
+  "BasicMaterialsList": [
+    {
+      "name": "Synthetics",
+      "price":"362.9",
+      "selected":"false",
+      "sectorType":"BMC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"2.10"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"0.11"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Aluminum",
+      "price":"380.0",
+      "selected":"false",
+      "sectorType":"BMC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"0.22"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"-1.1"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Oil & Gas Pipelines",
+      "price":"1743.9",
+      "selected":"false",
+      "sectorType":"BMC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"10.75"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"-3.31"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    },
+    {
+      "name": "Independent Oil & Gas",
+      "price":"341.0",
+      "selected":"false",
+      "sectorType":"BMC",
+      "details": {
+        "DefaultPropertyOne":{
+          "name":"Long-Term Debt to Equity",
+          "value":"0.99"
+        },
+        "DefaultPropertyTwo":{
+          "name":"1 Day Price Change %",
+          "value":"0.01"
+        },
+        "PropertyOne":{
+          "name":"",
+          "value":""
+        },
+        "PropertyTwo":{
+          "name":"",
+          "value":""
+        }
+      }
+    }
+  ]
+}
