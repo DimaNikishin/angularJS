@@ -49,16 +49,26 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       return err;
     });
 }])
-
-.controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors',function($scope,HealthCareSector,additionalSectors) {
+//TODO: add to cache industrySectors array and get it from cache if it is not undefined
+.controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors','$cacheFactory',function($scope,HealthCareSector,additionalSectors,$cacheFactory) {
   $scope.showDetails = true;
 //array with selected sectors and all sectors for each industry type
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
-  $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
-  HealthCareSector.success(function(data){
-    $scope.selectedHC = true;
-    $scope.industrySectors[0].list = data.list;
-  });
+  (function(){
+    if(!angular.isUndefined($cacheFactory.get('industrySectors'))){
+      $scope.industrySectors = $cacheFactory.get('industrySectors').get('industrySectors');//find cache value in cacheId
+      $scope.selectedHC = true;
+    }
+    else{
+      $scope.cache = $cacheFactory('industrySectors');
+      $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
+      HealthCareSector.success(function(data){
+        $scope.selectedHC = true;
+        $scope.industrySectors[0].list = data.list;
+      });
+      $scope.cache.put('industrySectors', $scope.industrySectors)
+    }
+  })();
 //add function which search by name for selected sector in array with all sectors and pushing selected into array with selected sectors
   $scope.addFunction = function(sectorName){
     function sectorSearch(element, index, array){
