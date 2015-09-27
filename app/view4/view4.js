@@ -1,5 +1,5 @@
 'use strict';
-
+//TODO:write unit-test for view4
 angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -49,18 +49,18 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       return err;
     });
 }])
-//TODO: add to cache industrySectors array and get it from cache if it is not undefined
+//when user leaves from view4 - array with selected and list sectors is added to cache and got form cache when user returns to view4 from another view
 .controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors','$cacheFactory',function($scope,HealthCareSector,additionalSectors,$cacheFactory) {
   $scope.showDetails = true;
 //array with selected sectors and all sectors for each industry type
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
   (function(){
     if(!angular.isUndefined($cacheFactory.get('industrySectors'))){
-      $scope.industrySectors = $cacheFactory.get('industrySectors').get('industrySectors');//find cache value in cacheId
+      $scope.industrySectors = $cacheFactory.get('industrySectors').get('industrySectors');//find cached value in cacheId
       $scope.selectedHC = true;
     }
     else{
-      $scope.cache = $cacheFactory('industrySectors');
+      $scope.cache = $cacheFactory('industrySectors');//create cacheId and put there value if this cacheId not found
       $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
       HealthCareSector.success(function(data){
         $scope.selectedHC = true;
