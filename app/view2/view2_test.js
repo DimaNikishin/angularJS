@@ -46,7 +46,7 @@ describe('myApp.view2 module', function() {
 
   });
 
-  describe('view2 weather directive shoudl create img DOMNode', function(){
+  describe('view2 weather directive should create img DOMNode', function(){
 
     it('should ....', inject(function($compile) {
       var weather = angular.element("<div><weather></weather></div>");
