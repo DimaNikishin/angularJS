@@ -34,7 +34,7 @@ describe('myApp.view2 module', function() {
     }));
 
   });
-
+// next time better test factory separately from controller but not inside/with controller
   describe('view2 AJAX call', function(){
 
     it('should ....', inject(function() {

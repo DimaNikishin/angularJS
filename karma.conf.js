@@ -13,6 +13,7 @@ module.exports = function(config){
       'app/bower_components/angular-loader/angular-loader.js',
       'app/components/**/*.js',
       'app/view*/**/*.js',
+      'app/tests/**/*.js',
       'app/*.js'
     ],
 
