@@ -1,11 +1,10 @@
 <div class="product col-sm-3">
     <div class="product-name">{{formStrintToObject(sector).name}}</div>
-    <div class="product-price">
-        {{formStrintToObject(sector).price | currency}}
-        <a class="shop-cart" href="javascript:void(0)" ng-click="addFunction({sectorName:formStrintToObject(sector).name})" ng-hide="hideBuyButton(selected)"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-        <a class="shop-cart" href="javascript:void(0)" ng-click="removeFunction({sectorName:formStrintToObject(sector).name})" ng-show="hideBuyButton(selected)"><span class="glyphicon glyphicon-remove-sign"></span></a>
+    <div class="product-price"><dvi id="testId">{{formStrintToObject(sector).price | currency}}</dvi>
+        <a class="shop-cart" id="1" href="javascript:void(0)" ng-click="addFunction({sectorName:formStrintToObject(sector).name})" ng-if="!hideBuyButton(selected)"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+        <a class="shop-cart" id="2" href="javascript:void(0)" ng-click="removeFunction({sectorName:formStrintToObject(sector).name})" ng-if="hideBuyButton(selected)"><span class="glyphicon glyphicon-remove-sign"></span></a>
     </div>
-    <div class="price-property">{{formStrintToObject(sector).details.PropertyOne.name}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(formStrintToObject(sector).details.PropertyOne.name)"><br>{{formStrintToObject(sector).details.PropertyTwo.name}}<input type="checkbox" class="property-checkbox" ng-show="showEnabledProperty(formStrintToObject(sector).details.PropertyTwo.name)"></div>
+    <div class="price-property">{{formStrintToObject(sector).details.PropertyOne.name}}<input class="inputTestClass" type="checkbox" ng-if="showEnabledProperty(formStrintToObject(sector).details.PropertyOne.name)"><br>{{formStrintToObject(sector).details.PropertyTwo.name}}<input type="checkbox" class="property-checkbox" ng-if="showEnabledProperty(formStrintToObject(sector).details.PropertyTwo.name)"></div>
     <div class="details">Details
         <div class="default-property">{{formStrintToObject(sector).details.DefaultPropertyOne.name}}<br>{{formStrintToObject(sector).details.DefaultPropertyOne.value}}</div>
         <div class="default-property">{{formStrintToObject(sector).details.DefaultPropertyTwo.name}}<br>{{formStrintToObject(sector).details.DefaultPropertyTwo.value}}</div>

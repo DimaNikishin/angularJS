@@ -24,7 +24,7 @@ describe('myApp.view4 module', function() {
       //spec body
       expect(view4Ctrl).toBeDefined();
     }));
-
+    //filter
     it('should return string with sorted by length sectors names', inject(function(selectedNamesFilter) {
       //spec body
       expect(selectedNamesFilter([{name:'name'},{name:'name three'},{name:'name two'}])).toEqual("name; name two; name three; ");
@@ -268,6 +268,104 @@ describe('myApp.view4 module', function() {
 
       expect(result).toEqual(returnData);
     });
+  });
+
+  describe('directive tests', function () {
+
+    var element;
+    var $scope;
+    //using preprocessor that converts template HTML files into JS strings and generates Angular modules.
+    //These modules, when loaded, puts these HTML files into the $templateCache and therefore
+    //Angular won't try to fetch them from the server.
+    //stripPrefix - allows to use in directive call relative pass to template and return file added in karma.conf.js(where it's actual path)
+    beforeEach(module('myApp.view4'));
+    beforeEach(module('view4/ProductTemplate/ProductTemplate.html'))
+    beforeEach(inject(function($compile, $rootScope){
+      $scope = $rootScope.$new();
+      $scope.sector = {name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}};
+      element = angular.element('<product></product>');
+      $compile(element)($scope);
+      $rootScope.$digest();
+    }));
+
+    it('should return html', function (){
+      var isoScope = element.isolateScope();
+      expect(element.find('.product').length).toBe(1);
+      expect(element.find('.product-name').length).toBe(1);
+      expect(element.find('.product-price').length).toBe(1);
+      expect(element.find('.price-property').length).toBe(1);
+      expect(element.find('.details').length).toBe(1);
+      expect(element.find('.default-property').length).toBe(2);
+    });
+
+  });
+
+  describe('directive scope tests', function () {
+
+    var element;
+    var scope;
+    //using preprocessor that converts template HTML files into JS strings and generates Angular modules.
+    //These modules, when loaded, puts these HTML files into the $templateCache and therefore
+    //Angular won't try to fetch them from the server.
+    //stripPrefix - allows to use in directive call relative pass to template and return file added in karma.conf.js(where it's actual path)
+    beforeEach(module('myApp.view4'));
+    beforeEach(module('view4/ProductTemplate/ProductTemplate.html'))
+    beforeEach(inject(function($compile, $rootScope){
+      scope = $rootScope.$new();
+      scope.sector = '{name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}}';
+      scope.selected = true;
+      scope.addFunction =jasmine.createSpy('addFunction');
+      scope.removeFunction =jasmine.createSpy('removeFunction');
+      //after change eval to scope.$eval test start work
+      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>');
+      $compile(element)(scope);
+      $rootScope.$digest();
+    }));
+
+    it('should have scope values and hide add button', function (){
+      var isoScope = element.isolateScope();
+      expect(isoScope.sector).toEqual('{name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}}');
+      expect(isoScope.selected).toEqual('true');
+      expect(element.find('.product-name').text()).toBe('Application Software');
+      expect(element.find('#testId').text()).toEqual('$1,380.00');
+      expect(element.find('.price-property').text()).toBe('name1name2');
+      expect(element.find('.default-property').text()).toBe('Long-Term Debt to Equity7.221 Day Price Change %3.1');
+      //link's function: hideBuyButton function test
+      expect(element.find('#1').length).toBe(0);
+      expect(element.find('#2').length).toBe(1);
+      //scope function
+      isoScope.addFunction();
+      expect(scope.addFunction).toHaveBeenCalled();
+      isoScope.removeFunction();
+      expect(scope.removeFunction).toHaveBeenCalled();
+    });
+
+  });
+
+  describe('directive link functions tests', function () {
+
+    var element;
+    var scope;
+    beforeEach(module('myApp.view4'));
+    beforeEach(module('view4/ProductTemplate/ProductTemplate.html'))
+    beforeEach(inject(function($compile, $rootScope){
+      scope = $rootScope.$new();
+      scope.sector = '{name: "Application Software",price:1380.0, selected:false, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"", value:""}}}';
+      scope.selected = false;
+      //after change eval to scope.$eval test start work
+      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>');
+      $compile(element)(scope);
+      $rootScope.$digest();
+    }));
+
+    it('should hide property field for empty property and remove button', function (){
+      expect(element.find('.price-property').text()).toBe('name1');
+      expect(element.find('.price-property>input').length).toBe(1);
+      //link's function: hideBuyButton function test
+      expect(element.find('#1').length).toBe(1);
+      expect(element.find('#2').length).toBe(0);
+    });
+
   });
 
 });

@@ -14,7 +14,8 @@ module.exports = function(config){
       'app/components/**/*.js',
       'app/view*/**/*.js',
       'app/tests/**/*.js',
-      'app/*.js'
+      'app/*.js',
+      'app/view4/ProductTemplate/*.html'
     ],
 
     autoWatch : true,
@@ -27,13 +28,21 @@ module.exports = function(config){
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
             ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
-    }
+    },
 
-  });
+    preprocessors: {
+      'app/view4/ProductTemplate/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor : {
+      stripPrefix: 'app/'
+    }
+});
 };

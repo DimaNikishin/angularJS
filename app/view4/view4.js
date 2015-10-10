@@ -78,7 +78,7 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       $scope.cache.put('industrySectors', $scope.industrySectors)
     }
   };
-  $scope.controllerFunction()
+  $scope.controllerFunction();
 //add function which search by name for selected sector in array with all sectors and pushing selected into array with selected sectors
   $scope.addFunction = function(sectorName){
     function sectorSearch(element, index, array){
@@ -219,7 +219,7 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         return myBool;
       }
       scope.formStrintToObject = function(string){
-        var object = eval("(" + string + ')');
+        var object = scope.$eval("(" + string + ')');
         return object;
       }
     }
