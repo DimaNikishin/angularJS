@@ -63,6 +63,7 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 //array with selected sectors and all sectors for each industry type
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
 //anonymous function is not good enough in unit-testing
+//TODO:rewrite from cache to services/factories
   $scope.controllerFunction = function(){
     if(!angular.isUndefined($cacheFactory.get('industrySectors'))){
       $scope.industrySectors = $cacheFactory.get('industrySectors').get('industrySectors');//find cached value in cacheId

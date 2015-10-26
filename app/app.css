@@ -208,3 +208,10 @@ li.products > a > span {
 .market-basket > h4 {
     padding-top: 10px;
 }
+
+.main-form {
+    margin: 25%;
+    margin-top: 10%!important;
+    padding: 50px;
+    border: 1px solid;
+}

@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
+  'myApp.authentication',
   'myApp.view1',
   'myApp.view2',
   'myApp.view3',
@@ -28,7 +29,7 @@ angular.module('myApp', [
 //$routeScope.on() is listening an events that come up to root scope
 // $routeChangeError is displaying in directive (also I'm allowed to pass $rootScope into directive and listen root scope angular events from there
 // directive is displayed with status of routeChange event (start/success)
-.directive('ajaxError',['$rootScope','$timeout','$cacheFactory', function($rootScope,$timeout,$cacheFactory){
+.directive('ajaxError',['$rootScope','$timeout', function($rootScope,$timeout){
   return{
     restrict:'E',
     template:'<div class="alert-warning" ng-show="isError"><h4>failed to load JSON file</h4></div>'+'<div class="alert-info" ng-show="isStart"><h4>Loading JSON file is started</h4></div>'+'<div class="alert-success" ng-show="isComplete"><h4>Loading JSON file is completed</h4></div>',
