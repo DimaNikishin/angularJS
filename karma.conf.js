@@ -8,6 +8,7 @@ module.exports = function(config){
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/greensock/src/uncompressed/TweenMax.js',
       'app/bower_components/angular-loader/angular-loader.js',
@@ -15,7 +16,8 @@ module.exports = function(config){
       'app/view*/**/*.js',
       'app/tests/**/*.js',
       'app/*.js',
-      'app/view4/ProductTemplate/*.html'
+      'app/view4/ProductTemplate/*.html',
+      'app/authentication/*.js'
     ],
 
     autoWatch : true,

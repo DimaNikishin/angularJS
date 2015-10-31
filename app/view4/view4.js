@@ -33,7 +33,14 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 .factory('HealthCareSector', ['$http', function($http) {
   return {
     get: function(){
-      return $http.get('http://localhost:8080/app/Healthcare Sector.json')
+      var req = {
+        method: 'GET',
+        url: 'http://localhost:8080/app/Healthcare Sector.json',
+        headers: {
+          'Authorization': undefined
+        }
+      };
+      return $http(req)
         .success(function (data) {
           return angular.fromJson(data);
         })
@@ -47,7 +54,14 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 .factory('additionalSectors', ['$http', function($http) {
   return{
     get: function(){
-      return $http.get('http://localhost:8080/app/Additional Sectors.json')
+      var req = {
+        method: 'GET',
+        url: 'http://localhost:8080/app/Additional Sectors.json',
+        headers: {
+          'Authorization': undefined
+        }
+      };
+      return $http(req)
         .success(function(data) {
           return angular.fromJson(data);
         })
