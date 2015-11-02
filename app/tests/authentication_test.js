@@ -79,5 +79,27 @@ describe('myApp.authentication module', function() {
     });
   });
 
+  describe('AuthenticationCtrl', function () {
 
+    var scope;
+    var AuthenticationService;
+    var AuthenticationCtrl;
+
+    beforeEach(module('myApp'));
+    beforeEach(inject(function ($rootScope, $controller, _AuthenticationService_) {
+      scope = $rootScope.$new();
+      AuthenticationService =_AuthenticationService_;
+      AuthenticationCtrl = $controller('AuthenticationCtrl', {$scope:scope,AuthenticationService:_AuthenticationService_});
+      spyOn(AuthenticationService, 'ClearCredentials');
+      spyOn(AuthenticationService, 'Login');
+    }));
+
+    it('should have logout and login functions', function () {
+        scope.logout();
+        expect(AuthenticationService.ClearCredentials).toHaveBeenCalled();
+
+        scope.login();
+        expect(AuthenticationService.Login).toHaveBeenCalled();
+      });
+  });
 });
