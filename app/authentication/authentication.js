@@ -69,6 +69,9 @@ angular.module('myApp.authentication', ['ngRoute', 'ngAnimate','ngCookies'])
           if(response.success) {
             AuthenticationService.SetCredentials($scope.username, $scope.password);
             $location.path('/');
+            var currentActiveLink = $(".active");
+            currentActiveLink.removeClass("active");
+            $(".nav-link:contains('Home')").parent().addClass("active");
           } else {
             $scope.error = response.message;
           }

@@ -10,8 +10,25 @@ $(document).ready(function(){
     // adding active class to nav links
     $(".nav-link").click(function(){
         var currentActiveLink = $(".active");
-        currentActiveLink.removeClass("active")
-        $(this).parent().addClass("active")
+        currentActiveLink.removeClass("active");
+        switch(window.location.hash) {
+          case '#/Home':
+            $(".nav-link:contains('Home')").parent().addClass("active");
+            break;
+          case '#/Gallery':
+            $(".nav-link:contains('Gallery')").parent().addClass("active");
+            break;
+          case '#/PlanSelection':
+            $(".nav-link:contains('FrontEnd Business Logic')").parent().addClass("active");
+            break;
+          case '#/CodeSandbox':
+            $(".nav-link:contains('Code sandbox')").parent().addClass("active");
+            break;
+          case '#/Authentication':
+            $(".nav-link:contains('Login')").parent().addClass("active");
+            break;
+        }
+        //$(this).parent().addClass("active");
         $('body,html').scrollTop(0);
     });
     // adding active class to not implemented nav links
