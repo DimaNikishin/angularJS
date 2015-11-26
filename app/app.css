@@ -147,7 +147,7 @@ li.products > a {
     font-size: 18px !important;
 }
 
-li.products > a > span {
+span.badge {
     float: right;
 }
 
@@ -214,4 +214,14 @@ li.products > a > span {
     margin-top: 10%!important;
     padding: 50px;
     border: 1px solid;
+}
+
+span.badge {
+    float: right;
+}
+
+.product-menu > input,label {
+    float: left;
+    font-size: 16px !important;
+    margin-left: 10px;
 }
