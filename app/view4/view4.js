@@ -228,15 +228,15 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
             return true;
           }
         }
-      }
-      scope.hideBuyButton = function(value){
+      };
+      scope.booleanVal = function(value){
         var myBool = value == "true";
         return myBool;
-      }
+      };
       scope.formStrintToObject = function(string){
         var object = scope.$eval("(" + string + ')');
         return object;
-      }
+      };
     }
   }
 }]);

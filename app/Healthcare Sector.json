@@ -15,12 +15,14 @@
           "value":"0.11"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"SHIRE",
+          "value":"-0.41",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"GILEAD SCIENCES",
+          "value":"+1.13",
+          "selected":"false"
         }
       }
     },
@@ -39,12 +41,14 @@
           "value":"-1.1"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"LIFESTYLE MEDICAL",
+          "value":"0.00",
+          "selected":"false"
         },
         "PropertyTwo":{
           "name":"",
-          "value":""
+          "value":"",
+          "selected":""
         }
       }
     },
@@ -63,12 +67,14 @@
           "value":"3.31"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"NMC HEALTH PLC",
+          "value":"+1.82",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"SYNERGY HEALTH",
+          "value":"+1.03",
+          "selected":"false"
         }
       }
     },
@@ -87,12 +93,14 @@
           "value":"0.01"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Chemed Corp",
+          "value":"+0.91",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"Amedisys Inc",
+          "value":"-0.13",
+          "selected":"false"
         }
       }
     },
@@ -111,12 +119,14 @@
           "value":"0.76"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"LUPIN LTD.",
+          "value":"-1.31",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"LUPIN LIMITED",
+          "value":"-1.74",
+          "selected":"false"
         }
       }
     },
@@ -135,12 +145,14 @@
           "value":"3.11"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Amsurg Corp. [AMSG]",
+          "value":"-2.03",
+          "selected":"false"
         },
         "PropertyTwo":{
           "name":"",
-          "value":""
+          "value":"",
+          "selected":""
         }
       }
     },
@@ -159,12 +171,14 @@
           "value":"-2.33"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Alternatives Internatio",
+          "value":"+2.67",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"CTD HOLDINGS INC",
+          "value":"+1.39",
+          "selected":"false"
         }
       }
     },
@@ -183,12 +197,14 @@
           "value":"2.22"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"EXOVA GROUP",
+          "value":"-3.03",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"SWE ORPHAN BIOVITRU",
+          "value":"+1.73",
+          "selected":"false"
         }
       }
     },
@@ -207,12 +223,14 @@
           "value":"0.78"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Meridian Bioscience Inc.",
+          "value":"-1.57",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"Quidel Corporation",
+          "value":"0.00",
+          "selected":"false"
         }
       }
     }

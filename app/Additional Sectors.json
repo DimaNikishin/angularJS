@@ -15,12 +15,14 @@
           "value":"1.60"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"VERIZON COMM",
+          "value":"-0.15",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"VODAFONE GROUP",
+          "value":"-2.01",
+          "selected":"false"
         }
       }
     },
@@ -39,12 +41,14 @@
           "value":"3.1"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Oracle Corporation",
+          "value":"+0.22",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"SAP SE ADS",
+          "value":"+1.13",
+          "selected":"false"
         }
       }
     },
@@ -63,12 +67,14 @@
           "value":"1.01"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"MITSUBISHI ELECTRIC",
+          "value":"+11.13",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"MARUWA",
+          "value":"+5.96",
+          "selected":"false"
         }
       }
     },
@@ -87,12 +93,14 @@
           "value":"3.41"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Telefonica SA",
+          "value":"0.00",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"Orange",
+          "value":"0.13",
+          "selected":"false"
         }
       }
     },
@@ -112,11 +120,13 @@
         },
         "PropertyOne":{
           "name":"",
-          "value":""
+          "value":"",
+          "selected":""
         },
         "PropertyTwo":{
           "name":"",
-          "value":""
+          "value":"",
+          "selected":""
         }
       }
     },
@@ -135,12 +145,14 @@
           "value":"0.11"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Electronics for Imaging",
+          "value":"+0.82",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"tratasys, Ltd.",
+          "value":"+0.72",
+          "selected":"false"
         }
       }
     },
@@ -159,12 +171,14 @@
           "value":"7.33"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"HP [HPQ.MX]",
+          "value":"-0.63",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"HP COMPANY DRN EC",
+          "value":"-2.11",
+          "selected":"false"
         }
       }
     }
@@ -185,12 +199,14 @@
           "value":"0.11"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"BIOLARGO, INC.",
+          "value":"-4.67",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"GELTECH SOLUTIONS",
+          "value":"-7.18",
+          "selected":"false"
         }
       }
     },
@@ -209,12 +225,14 @@
           "value":"-1.1"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"NORSK HYDRO",
+          "value":"-0.46",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"ALCOA",
+          "value":"0.00",
+          "selected":"false"
         }
       }
     },
@@ -233,12 +251,14 @@
           "value":"-3.31"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"Kinder Morgan, Inc.",
+          "value":"-1.19",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"ENBRIDGE INC",
+          "value":"+1.03",
+          "selected":"false"
         }
       }
     },
@@ -257,12 +277,14 @@
           "value":"0.01"
         },
         "PropertyOne":{
-          "name":"",
-          "value":""
+          "name":"BG GROUP",
+          "value":"+0.15",
+          "selected":"false"
         },
         "PropertyTwo":{
-          "name":"",
-          "value":""
+          "name":"CONOCOPHILLIPS",
+          "value":"+0.56",
+          "selected":"false"
         }
       }
     }
