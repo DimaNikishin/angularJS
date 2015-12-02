@@ -25,9 +25,9 @@
                 </div>
             </div>
             <div class="col-sm-12 product-list">
-                <product ng-if="selectedHC" ng-repeat="sectors in industrySectors[0].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
-                <product ng-if="selectedTC" ng-repeat="sectors in industrySectors[1].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
-                <product ng-if="selectedBMC" ng-repeat="sectors in industrySectors[2].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>
+                <product ng-if="selectedHC" ng-repeat="sectors in industrySectors[0].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" main-Functional="mainFunctional(sectorName)"></product>
+                <product ng-if="selectedTC" ng-repeat="sectors in industrySectors[1].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" main-Functional="mainFunctional(sectorName)"></product>
+                <product ng-if="selectedBMC" ng-repeat="sectors in industrySectors[2].list | filter:sectorSearch" sector="{{sectors}}" selected="{{sectors.selected}}" main-Functional="mainFunctional(sectorName)"></product>
             </div>
         </div>
     </div>

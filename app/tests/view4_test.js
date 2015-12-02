@@ -6,7 +6,7 @@ describe('myApp.view4 module', function() {
     var view4Ctrl;
     var scope;
     var cacheFactory;
-
+    //TODO: write test to new controller function
     beforeEach(module('myApp.view4'));
     beforeEach(inject(function($controller, $rootScope,$cacheFactory,HealthCareSector,additionalSectors){
       scope = $rootScope;
@@ -121,18 +121,18 @@ describe('myApp.view4 module', function() {
       expect(scope.industrySectors[0].selected.length).toBe(0);
       expect(scope.industrySectors[1].selected.length).toBe(0);
       expect(scope.industrySectors[2].selected.length).toBe(0);
-      scope.addFunction("Health")
+      scope.mainFunctional("Health").addFunction();
       expect(scope.industrySectors[0].selected.length).toBe(1);
       expect(scope.industrySectors[0].selected).toEqual([{name: "Health", sectorType:"HC", selected: true}]);
       expect(scope.industrySectors[1].selected.length).toBe(0);
       expect(scope.industrySectors[2].selected.length).toBe(0);
-      scope.addFunction("Tech")
+      scope.mainFunctional("Tech").addFunction();
       expect(scope.industrySectors[0].selected.length).toBe(1);
       expect(scope.industrySectors[0].selected).toEqual([{name: "Health", sectorType:"HC", selected: true}]);
       expect(scope.industrySectors[1].selected.length).toBe(1);
       expect(scope.industrySectors[1].selected).toEqual([{name: "Tech", sectorType:"TC", selected: true}]);
       expect(scope.industrySectors[2].selected.length).toBe(0);
-      scope.addFunction("Basic Materials")
+      scope.mainFunctional("Basic Materials").addFunction();
       expect(scope.industrySectors[0].selected.length).toBe(1);
       expect(scope.industrySectors[0].selected).toEqual([{name: "Health", sectorType:"HC", selected: true}]);
       expect(scope.industrySectors[1].selected.length).toBe(1);
@@ -147,7 +147,7 @@ describe('myApp.view4 module', function() {
       expect(scope.industrySectors[1].selected.length).toBe(1);
       expect(scope.industrySectors[2].selected.length).toBe(1);
 
-      scope.removeFunction("Health");
+      scope.mainFunctional("Health").removeFunction();
       expect(scope.industrySectors[0].selected.length).toBe(0);
       expect(scope.industrySectors[0].list).toEqual([{name: "Health", sectorType:"HC", selected: false}]);
 
@@ -159,7 +159,7 @@ describe('myApp.view4 module', function() {
       expect(scope.industrySectors[2].list).toEqual([{name: "Basic Materials", sectorType:"BMC"}]);
       expect(scope.industrySectors[2].selected).toEqual([{name: "Basic Materials", sectorType:"BMC"}]);
 
-      scope.removeFunction("Tech");
+      scope.mainFunctional("Tech").removeFunction();
       expect(scope.industrySectors[0].selected.length).toBe(0);
       expect(scope.industrySectors[0].list).toEqual([{name: "Health", sectorType:"HC", selected: false}]);
 
@@ -170,7 +170,7 @@ describe('myApp.view4 module', function() {
       expect(scope.industrySectors[2].list).toEqual([{name: "Basic Materials", sectorType:"BMC"}]);
       expect(scope.industrySectors[2].selected).toEqual([{name: "Basic Materials", sectorType:"BMC"}]);
 
-      scope.removeFunction("Basic Materials");
+      scope.mainFunctional("Basic Materials").removeFunction();
       expect(scope.industrySectors[0].selected.length).toBe(0);
       expect(scope.industrySectors[0].list).toEqual([{name: "Health", sectorType:"HC", selected: false}]);
 
@@ -183,29 +183,29 @@ describe('myApp.view4 module', function() {
       //moving elements in array
       scope.industrySectors = [{name:"Healthcare Sector", selected:[{name: "Health", sectorType:"HC"},{name: "Health1", sectorType:"HC"},{name: "Health2", sectorType:"HC"}], list: [{name: "Health", sectorType:"HC"},{name: "Health1", sectorType:"HC"},{name: "Health2", sectorType:"HC"}]},{name:"Technology Sector", selected:[{name: "Tech", sectorType:"TC"},{name: "Tech1", sectorType:"TC"},{name: "Tech2", sectorType:"TC"}], list: [{name: "Tech", sectorType:"TC"},{name: "Tech1", sectorType:"TC"},{name: "Tech2", sectorType:"TC"}]},{name:"Basic Materials Sector", selected:[{name: "Basic Materials", sectorType:"BMC"},{name: "Basic1 Materials", sectorType:"BMC"},{name: "Basic2 Materials", sectorType:"BMC"}], list: [{name: "Basic Materials", sectorType:"BMC"},{name: "Basic1 Materials", sectorType:"BMC"},{name: "Basic2 Materials", sectorType:"BMC"}]}];
       expect(scope.industrySectors[0].selected[0].name).toEqual("Health");
-      scope.removeFunction("Health");
+      scope.mainFunctional("Health").removeFunction();
       expect(scope.industrySectors[0].selected[0].name).toEqual("Health2");
       expect(scope.industrySectors[0].selected[1].name).toEqual("Health1");
       expect(scope.industrySectors[0].selected.length).toBe(2);
-      scope.removeFunction("Health2");
+      scope.mainFunctional("Health2").removeFunction();
       expect(scope.industrySectors[0].selected[0].name).toEqual("Health1");
       expect(scope.industrySectors[0].selected.length).toBe(1);
 
       expect(scope.industrySectors[1].selected[2].name).toEqual("Tech2");
-      scope.removeFunction("Tech2");
+      scope.mainFunctional("Tech2").removeFunction();
       expect(scope.industrySectors[1].selected[0].name).toEqual("Tech");
       expect(scope.industrySectors[1].selected[1].name).toEqual("Tech1");
       expect(scope.industrySectors[1].selected.length).toBe(2);
-      scope.removeFunction("Tech1");
+      scope.mainFunctional("Tech1").removeFunction();
       expect(scope.industrySectors[1].selected[0].name).toEqual("Tech");
       expect(scope.industrySectors[1].selected.length).toBe(1);
 
       expect(scope.industrySectors[2].selected[1].name).toEqual("Basic1 Materials");
-      scope.removeFunction("Basic1 Materials");
+      scope.mainFunctional("Basic1 Materials").removeFunction();
       expect(scope.industrySectors[2].selected[0].name).toEqual("Basic Materials");
       expect(scope.industrySectors[2].selected[1].name).toEqual("Basic2 Materials");
       expect(scope.industrySectors[2].selected.length).toBe(2);
-      scope.removeFunction("Basic2 Materials");
+      scope.mainFunctional("Basic2 Materials").removeFunction();
       expect(scope.industrySectors[2].selected[0].name).toEqual("Basic Materials");
       expect(scope.industrySectors[2].selected.length).toBe(1);
     }));
@@ -314,10 +314,9 @@ describe('myApp.view4 module', function() {
       scope = $rootScope.$new();
       scope.sector = '{name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}}';
       scope.selected = true;
-      scope.addFunction =jasmine.createSpy('addFunction');
-      scope.removeFunction =jasmine.createSpy('removeFunction');
+      scope.mainFunctional =jasmine.createSpy('mainFunctional');
       //after change eval to scope.$eval test start work
-      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>');
+      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" main-Functional="mainFunctional(sectorName)"></product>');
       $compile(element)(scope);
       $rootScope.$digest();
     }));
@@ -334,10 +333,8 @@ describe('myApp.view4 module', function() {
       expect(element.find('#1').length).toBe(0);
       expect(element.find('#2').length).toBe(1);
       //scope function
-      isoScope.addFunction();
-      expect(scope.addFunction).toHaveBeenCalled();
-      isoScope.removeFunction();
-      expect(scope.removeFunction).toHaveBeenCalled();
+      isoScope.mainFunctional();
+      expect(scope.mainFunctional).toHaveBeenCalled();
     });
 
   });
@@ -353,7 +350,7 @@ describe('myApp.view4 module', function() {
       scope.sector = '{name: "Application Software",price:1380.0, selected:false, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"", value:""}}}';
       scope.selected = false;
       //after change eval to scope.$eval test start work
-      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" add-Function="addFunction(sectorName)" remove-Function="removeFunction(sectorName)"></product>');
+      element = angular.element('<product sector="{{sector}}" selected="{{selected}}" main-Functional="mainFunctional(sectorName)"></product>');
       $compile(element)(scope);
       $rootScope.$digest();
     }));

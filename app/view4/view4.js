@@ -94,68 +94,69 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     }
   };
   $scope.controllerFunction();
+//ADD & REMOVE functions was refactored and moved in one main function which return object with all functions
 //add function which search by name for selected sector in array with all sectors and pushing selected into array with selected sectors
-  $scope.addFunction = function(sectorName){
-    function sectorSearch(element, index, array){
-      for (var name in element){
-        if(element.name === sectorName){
-          //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
-          element.selected = true;
-          return element;
-        }
-      }
-    }
-    var searchResult = (function(){
-      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
-      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
-      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
-    })();
-    //adding sector into appropriate industry type
-    if(searchResult[0].sectorType === "HC"){
-      $scope.industrySectors[0].selected.push(searchResult[0]);
-    }
-    else if(searchResult[0].sectorType === "TC"){
-      $scope.industrySectors[1].selected.push(searchResult[0]);
-    }
-    else{
-      $scope.industrySectors[2].selected.push(searchResult[0]);
-    }
-  };
-//TODO: rewrite comments
-  $scope.removeFunction = function(sectorName){
-    function sectorSearch(element, index, array){
-      for (var name in element){
-        if(element.name === sectorName){
-          //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
-          element.selected = false;
-          return element;
-        }
-      }
-    }
-    var innerRemoveFunction = function(n){
-      var removeItem = $scope.industrySectors[n].selected.filter(sectorSearch);
-      var indexOfRemoveItem = $scope.industrySectors[n].selected.indexOf(removeItem[0])
-      var lastItem = $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1];
-      $scope.industrySectors[n].selected[indexOfRemoveItem] = lastItem;
-      $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1] = removeItem[0];
-      $scope.industrySectors[n].selected.pop();
-    };
-    var searchResult = (function(){
-      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
-      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
-      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
-    })();
-    //removing sector from appropriate industry type
-    if(searchResult[0].sectorType === "HC"){
-      innerRemoveFunction(0);
-    }
-    else if(searchResult[0].sectorType === "TC"){
-      innerRemoveFunction(1);
-    }
-    else{
-      innerRemoveFunction(2);
-    }
-  };
+//  $scope.addFunction = function(sectorName){
+//    function sectorSearch(element, index, array){
+//      for (var name in element){
+//        if(element.name === sectorName){
+//          //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
+//          element.selected = true;
+//          return element;
+//        }
+//      }
+//    }
+//    var searchResult = (function(){
+//      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
+//      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
+//      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
+//    })();
+//    //adding sector into appropriate industry type
+//    if(searchResult[0].sectorType === "HC"){
+//      $scope.industrySectors[0].selected.push(searchResult[0]);
+//    }
+//    else if(searchResult[0].sectorType === "TC"){
+//      $scope.industrySectors[1].selected.push(searchResult[0]);
+//    }
+//    else{
+//      $scope.industrySectors[2].selected.push(searchResult[0]);
+//    }
+//  };
+////TODO: rewrite comments
+//  $scope.removeFunction = function(sectorName){
+//    function sectorSearch(element, index, array){
+//      for (var name in element){
+//        if(element.name === sectorName){
+//          //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
+//          element.selected = false;
+//          return element;
+//        }
+//      }
+//    }
+//    var innerRemoveFunction = function(n){
+//      var removeItem = $scope.industrySectors[n].selected.filter(sectorSearch);
+//      var indexOfRemoveItem = $scope.industrySectors[n].selected.indexOf(removeItem[0])
+//      var lastItem = $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1];
+//      $scope.industrySectors[n].selected[indexOfRemoveItem] = lastItem;
+//      $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1] = removeItem[0];
+//      $scope.industrySectors[n].selected.pop();
+//    };
+//    var searchResult = (function(){
+//      if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[0].list.filter(sectorSearch)}
+//      else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){return $scope.industrySectors[1].list.filter(sectorSearch)}
+//      else{return $scope.industrySectors[2].list.filter(sectorSearch)}
+//    })();
+//    //removing sector from appropriate industry type
+//    if(searchResult[0].sectorType === "HC"){
+//      innerRemoveFunction(0);
+//    }
+//    else if(searchResult[0].sectorType === "TC"){
+//      innerRemoveFunction(1);
+//    }
+//    else{
+//      innerRemoveFunction(2);
+//    }
+//  };
   $scope.selectedProducts = function(selectedList){
     if(selectedList.length === 0){
       return false;
@@ -200,6 +201,86 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     else{
       innerSelectedSectorFunction(false,false,true);
     }
+  };
+//main function with inner function and returned object with functions which used in directive
+  $scope.mainFunctional = function(sectorName){
+
+    //filter function for all main functionality (search correct sector in array)
+    function sectorSearch(element, index, array){
+      for (var name in element){
+        if(element.name === sectorName){
+          return element;
+        }
+      }
+    };
+
+    //inner remove function to change order of elements and fully delete element from array
+    function innerRemoveFunction(n){
+      var removeItem = $scope.industrySectors[n].selected.filter(sectorSearch);
+      var indexOfRemoveItem = $scope.industrySectors[n].selected.indexOf(removeItem[0])
+      var lastItem = $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1];
+      $scope.industrySectors[n].selected[indexOfRemoveItem] = lastItem;
+      $scope.industrySectors[n].selected[$scope.industrySectors[n].selected.length-1] = removeItem[0];
+      $scope.industrySectors[n].selected.pop();
+    };
+
+    return {
+      //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
+      addFunction : function(){
+        var searchResult = (function(){
+          if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){
+            $scope.industrySectors[0].list.filter(sectorSearch)[0].selected = true;
+            return $scope.industrySectors[0].list.filter(sectorSearch)
+          }
+          else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){
+            $scope.industrySectors[1].list.filter(sectorSearch)[0].selected = true;
+            return $scope.industrySectors[1].list.filter(sectorSearch)
+          }
+          else{
+            $scope.industrySectors[2].list.filter(sectorSearch)[0].selected = true;
+            return $scope.industrySectors[2].list.filter(sectorSearch)
+          }
+        })();
+        //adding sector into appropriate industry type
+        if(searchResult[0].sectorType === "HC"){
+          $scope.industrySectors[0].selected.push(searchResult[0]);
+        }
+        else if(searchResult[0].sectorType === "TC"){
+          $scope.industrySectors[1].selected.push(searchResult[0]);
+        }
+        else{
+          $scope.industrySectors[2].selected.push(searchResult[0]);
+        }
+      },
+
+      removeFunction : function(){
+        //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
+        var searchResult = (function(){
+          if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){
+            $scope.industrySectors[0].list.filter(sectorSearch)[0].selected = false;
+            return $scope.industrySectors[0].list.filter(sectorSearch)
+          }
+          else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){
+            $scope.industrySectors[1].list.filter(sectorSearch)[0].selected = false;
+            return $scope.industrySectors[1].list.filter(sectorSearch)
+          }
+          else{
+            $scope.industrySectors[2].list.filter(sectorSearch)[0].selected = false;
+            return $scope.industrySectors[2].list.filter(sectorSearch)
+          }
+        })();
+        //removing sector from appropriate industry type
+        if(searchResult[0].sectorType === "HC"){
+          innerRemoveFunction(0);
+        }
+        else if(searchResult[0].sectorType === "TC"){
+          innerRemoveFunction(1);
+        }
+        else{
+          innerRemoveFunction(2);
+        }
+      }
+    }
   }
 }])
 //directive for displaying industry sectors
@@ -210,8 +291,8 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     scope: {
       sector: '@',
       selected: '@',
-      addFunction: '&',
-      removeFunction: '&'
+      mainFunctional: '&'
+
     },
     templateUrl: 'view4/ProductTemplate/ProductTemplate.html',
     link: function(scope, element, attrs){
