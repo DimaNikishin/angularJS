@@ -20,10 +20,20 @@ describe('myApp.view4 module', function() {
               "name": "Object1",
               "price":"1111",
               "sectorType":"TC"
+            },
+            {
+              "name": "ObjectWithoutRate",
+              "price":"",
+              "sectorType":"TC"
             }],
             BasicMaterialsList: [{
               "name": "Object2",
               "price":"11111",
+              "sectorType":"BMC"
+            },
+            {
+              "name": "ObjectWithZeroRate",
+              "price":"0.00",
               "sectorType":"BMC"
             }]})}
         };
@@ -65,6 +75,13 @@ describe('myApp.view4 module', function() {
       expect(scope.selectedProducts([])).toBe(false);
       expect(scope.selectedProducts([1,2])).toBe(true);
 
+    }));
+
+    it('function mainFunction should return object with functions',inject(function(){
+      expect(typeof scope.mainFunctional).toEqual('function');
+      expect(typeof scope.mainFunctional()).toEqual('object');
+      expect(typeof scope.mainFunctional().addFunction).toEqual('function');
+      expect(typeof scope.mainFunctional().removeFunction).toEqual('function');
     }));
 
     it('function selectedSector should change vars depending on argument',inject(function(){
@@ -120,6 +137,17 @@ describe('myApp.view4 module', function() {
       scope.downloadSectors();
       expect(scope.industrySectors[1].list).toEqual(['not empty']);
       expect(scope.industrySectors[2].list).toEqual(['not empty']);
+
+//New tests for hideSector function/filter
+      scope.hiddenSectors.length = 0;
+      scope.industrySectors[1].list = [];
+      scope.industrySectors[2].list = [];
+      scope.downloadSectors();
+      expect(scope.industrySectors[1].list.length).toBe(1);
+      expect(scope.industrySectors[2].list.length).toBe(1);
+      expect(scope.hiddenSectors.length).toBe(2);
+      expect(scope.hiddenSectors[0].name).toEqual('ObjectWithoutRate');
+      expect(scope.hiddenSectors[1].name).toEqual('ObjectWithZeroRate');
 
     }));
 
@@ -286,7 +314,7 @@ describe('myApp.view4 module', function() {
     //Angular won't try to fetch them from the server.
     //stripPrefix - allows to use in directive call relative pass to template and return file added in karma.conf.js(where it's actual path)
     beforeEach(module('myApp.view4'));
-    beforeEach(module('view4/ProductTemplate/ProductTemplate.html'))
+    beforeEach(module('view4/ProductTemplate/ProductTemplate.html'));
     beforeEach(inject(function($compile, $rootScope){
       $scope = $rootScope.$new();
       $scope.sector = {name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}};
