@@ -2,7 +2,7 @@
   "TechnologyList": [
     {
       "name": "Wireless Communications",
-      "price":"1962.9",
+      "price":"",
       "selected":"false",
       "sectorType":"TC",
       "details": {
@@ -186,7 +186,6 @@
   "BasicMaterialsList": [
     {
       "name": "Synthetics",
-      "price":"362.9",
       "selected":"false",
       "sectorType":"BMC",
       "details": {

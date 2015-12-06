@@ -74,6 +74,15 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 //when user leaves from view4 - array with selected and list sectors is added to cache and got form cache when user returns to view4 from another view
 .controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors','$cacheFactory',function($scope,HealthCareSector,additionalSectors,$cacheFactory) {
   $scope.showDetails = true;
+  function hideSector(element, index, array) {
+    if (!element.price || element.price == "0.00") {
+      var lastItem = array[array.length - 1];
+      array[index] = lastItem;
+      array[array.length - 1] = element;
+      array.pop();
+      $scope.hiddenSectors.push(element);
+    }
+  }
 //array with selected sectors and all sectors for each industry type
 //use array with selected sectors for display its names and total amount of selected sectors for each industry type
 //anonymous function is not good enough in unit-testing
@@ -81,14 +90,17 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
   $scope.controllerFunction = function(){
     if(!angular.isUndefined($cacheFactory.get('industrySectors'))){
       $scope.industrySectors = $cacheFactory.get('industrySectors').get('industrySectors');//find cached value in cacheId
+      $scope.industrySectors[0].list.forEach(hideSector);
       $scope.selectedHC = true;
     }
     else{
       $scope.cache = $cacheFactory('industrySectors');//create cacheId and put there value if this cacheId not found
       $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
+      $scope.hiddenSectors =[];
       HealthCareSector.get().success(function(data){
-        $scope.selectedHC = true;
         $scope.industrySectors[0].list = data.list;
+        $scope.industrySectors[0].list.forEach(hideSector)
+        $scope.selectedHC = true;
       });
       $scope.cache.put('industrySectors', $scope.industrySectors)
     }
@@ -170,28 +182,32 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       additionalSectors.get().success(function(data){
         $scope.industrySectors[1].list = data.TechnologyList;
         $scope.industrySectors[2].list = data.BasicMaterialsList;
+        $scope.industrySectors[1].list.forEach(hideSector);
+        $scope.industrySectors[2].list.forEach(hideSector);
       });
     }
     else {
       if($scope.industrySectors[1].list.length === 0){
         additionalSectors.get().success(function(data){
           $scope.industrySectors[1].list = data.TechnologyList;
+          $scope.industrySectors[1].list.forEach(hideSector);
         });
       }
       else if($scope.industrySectors[2].list.length === 0){
         additionalSectors.get().success(function(data){
           $scope.industrySectors[2].list = data.BasicMaterialsList;
+          $scope.industrySectors[2].list.forEach(hideSector);
         });
       }
     }
   };
   $scope.selectedSector = function(sectorName){
     var innerSelectedSectorFunction = function(selectedHC,selectedTC,selectedBMC){
+      $scope.downloadSectors();
       $scope.selectedHC = selectedHC;
       $scope.selectedTC = selectedTC;
       $scope.selectedBMC = selectedBMC;
-      $scope.downloadSectors()
-    }
+    };
     if(sectorName == $scope.industrySectors[0].name){
       innerSelectedSectorFunction(true,false,false);
     }

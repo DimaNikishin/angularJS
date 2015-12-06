@@ -15,7 +15,17 @@ describe('myApp.view4 module', function() {
 
       spyOn(additionalSectors, 'get').and.callFake(function() {
         return {
-          success: function(callback) { callback({TechnologyList: '1',BasicMaterialsList:'2'})}
+          success: function(callback) { callback({
+            TechnologyList: [{
+              "name": "Object1",
+              "price":"1111",
+              "sectorType":"TC"
+            }],
+            BasicMaterialsList: [{
+              "name": "Object2",
+              "price":"11111",
+              "sectorType":"BMC"
+            }]})}
         };
       });
     }));
@@ -47,9 +57,6 @@ describe('myApp.view4 module', function() {
         id: 'industrySectors',
         size: 0
       });
-      //test second run of controllerFunction and creating scope.selectedHC within
-      scope.controllerFunction();
-      expect(scope.selectedHC).toBe(true);
 
     }));
 
@@ -66,8 +73,8 @@ describe('myApp.view4 module', function() {
       expect(scope.selectedHC).toBe(true);
       expect(scope.selectedTC).toBe(false);
       expect(scope.selectedBMC).toBe(false);
-      expect(scope.industrySectors[1].list).toEqual('1');
-      expect(scope.industrySectors[2].list).toEqual('2');
+      expect(scope.industrySectors[1].list[0].name).toEqual('Object1');
+      expect(scope.industrySectors[2].list[0].name).toEqual('Object2');
 
       scope.industrySectors[1].list = ['not empty'];
       scope.industrySectors[2].list = [];
@@ -76,7 +83,7 @@ describe('myApp.view4 module', function() {
       expect(scope.selectedTC).toBe(true);
       expect(scope.selectedBMC).toBe(false);
       expect(scope.industrySectors[1].list).toEqual(['not empty']);
-      expect(scope.industrySectors[2].list).toEqual('2');
+      expect(scope.industrySectors[2].list[0].name).toEqual('Object2');
 
       scope.industrySectors[1].list = [];
       scope.industrySectors[2].list = ['not empty'];
@@ -84,7 +91,7 @@ describe('myApp.view4 module', function() {
       expect(scope.selectedHC).toBe(false);
       expect(scope.selectedTC).toBe(false);
       expect(scope.selectedBMC).toBe(true);
-      expect(scope.industrySectors[1].list).toEqual('1');
+      expect(scope.industrySectors[1].list[0].name).toEqual('Object1');
       expect(scope.industrySectors[2].list).toEqual(['not empty']);
     }));
 
@@ -93,19 +100,19 @@ describe('myApp.view4 module', function() {
 // factory should be saved into additional sectors lists
 
       scope.downloadSectors();
-      expect(scope.industrySectors[1].list).toEqual('1');
-      expect(scope.industrySectors[2].list).toEqual('2');
+      expect(scope.industrySectors[1].list[0].name).toEqual('Object1');
+      expect(scope.industrySectors[2].list[0].name).toEqual('Object2');
 
       scope.industrySectors[1].list = ['not empty'];
       scope.industrySectors[2].list = [];
       scope.downloadSectors();
       expect(scope.industrySectors[1].list).toEqual(['not empty']);
-      expect(scope.industrySectors[2].list).toEqual('2');
+      expect(scope.industrySectors[2].list[0].name).toEqual('Object2');
 
       scope.industrySectors[1].list = [];
       scope.industrySectors[2].list = ['not empty'];
       scope.downloadSectors();
-      expect(scope.industrySectors[1].list).toEqual('1');
+      expect(scope.industrySectors[1].list[0].name).toEqual('Object1');
       expect(scope.industrySectors[2].list).toEqual(['not empty']);
 
       scope.industrySectors[1].list = ['not empty'];
