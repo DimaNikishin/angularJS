@@ -314,11 +314,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         }
         if(propertyStatusObject.firstProperty || propertyStatusObject.secondProperty){
           if(propertyStatusObject.firstProperty){
-            searchResult[0].price = Math.round((Number(searchResult[0].price) * (100 + Number(searchResult[0].details.PropertyOne.value)))*0.01);
+            searchResult[0].price = ((Number(searchResult[0].price) * (100 + (searchResult[0].details.PropertyOne.value)))*0.01).toFixed(2);
             searchResult[0].details.PropertyOne.selected = true;
           }
           else{
-            searchResult[0].price = Math.round((Number(searchResult[0].price) * (100 + Number(searchResult[0].details.PropertyTwo.value)))*0.01);
+            searchResult[0].price = ((Number(searchResult[0].price) * (100 + (searchResult[0].details.PropertyTwo.value)))*0.01).toFixed(2);
             searchResult[0].details.PropertyTwo.selected = true;
           }
         }

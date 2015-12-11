@@ -2,49 +2,49 @@
   "list": [
     {
       "name": "Biotechnology",
-      "price":"0.00",
-      "standardRates": "0.00",
+      "price":0.00,
+      "standardRates": 0.00,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"10.10"
+          "value":10.10
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.11"
+          "value":0.11
         },
         "PropertyOne":{
           "name":"SHIRE",
-          "value":"-0.41",
+          "value":-0.41,
           "selected":false
         },
         "PropertyTwo":{
           "name":"GILEAD SCIENCES",
-          "value":"+1.13",
+          "value":1.13,
           "selected":false
         }
       }
     },
     {
       "name": "Medical Practitioners",
-      "price":"2480.0",
-      "standardRates": "2480.0",
+      "price":2480.0,
+      "standardRates": 2480.0,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"3.22"
+          "value":3.22
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"-1.1"
+          "value":-1.1
         },
         "PropertyOne":{
           "name":"LIFESTYLE MEDICAL",
-          "value":"0.00",
+          "value":0.00,
           "selected":false
         },
         "PropertyTwo":{
@@ -56,103 +56,103 @@
     },
     {
       "name": "Hospitals",
-      "price":"743.9",
-      "standardRates": "743.9",
+      "price":743.9,
+      "standardRates": 743.9,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"28.75"
+          "value":28.75
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"3.31"
+          "value":3.31
         },
         "PropertyOne":{
           "name":"NMC HEALTH PLC",
-          "value":"+1.82",
+          "value":1.82,
           "selected":false
         },
         "PropertyTwo":{
           "name":"SYNERGY HEALTH",
-          "value":"+1.03",
+          "value":1.03,
           "selected":false
         }
       }
     },
     {
       "name": "Home Health Care",
-      "price":"341.0",
-      "standardRates": "341.0",
+      "price":341.0,
+      "standardRates": 341.0,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"0.99"
+          "value":0.99
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.01"
+          "value":0.01
         },
         "PropertyOne":{
           "name":"Chemed Corp",
-          "value":"+0.91",
+          "value":0.91,
           "selected":false
         },
         "PropertyTwo":{
           "name":"Amedisys Inc",
-          "value":"-0.13",
+          "value":-0.13,
           "selected":false
         }
       }
     },
     {
       "name": "Drugs - Generic",
-      "price":"542.3",
-      "standardRates": "542.3",
+      "price":542.3,
+      "standardRates": 542.3,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"14.13"
+          "value":14.13
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.76"
+          "value":0.76
         },
         "PropertyOne":{
           "name":"LUPIN LTD.",
-          "value":"-1.31",
+          "value":-1.31,
           "selected":false
         },
         "PropertyTwo":{
           "name":"LUPIN LIMITED",
-          "value":"-1.74",
+          "value":-1.74,
           "selected":false
         }
       }
     },
     {
       "name": "Specialized Health Services",
-      "price":"178.1",
-      "standardRates": "178.1",
+      "price":178.1,
+      "standardRates": 178.1,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"32.11"
+          "value":32.11
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"3.11"
+          "value":3.11
         },
         "PropertyOne":{
           "name":"Amsurg Corp. [AMSG]",
-          "value":"-2.03",
+          "value":-2.03,
           "selected":false
         },
         "PropertyTwo":{
@@ -164,81 +164,81 @@
     },
     {
       "name": "Drug Related Products",
-      "price":"612.1",
-      "standardRates": "612.1",
+      "price":612.1,
+      "standardRates": 612.1,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"4.15"
+          "value":4.15
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"-2.33"
+          "value":-2.33
         },
         "PropertyOne":{
           "name":"Alternatives Internatio",
-          "value":"+2.67",
+          "value":2.67,
           "selected":false
         },
         "PropertyTwo":{
           "name":"CTD HOLDINGS INC",
-          "value":"+1.39",
+          "value":1.39,
           "selected":false
         }
       }
     },
     {
       "name": "Medical Laboratories & Research",
-      "price":"874.9",
-      "standardRates": "874.9",
+      "price":874.9,
+      "standardRates": 874.9,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"17.11"
+          "value":17.11
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"2.22"
+          "value":2.22
         },
         "PropertyOne":{
           "name":"EXOVA GROUP",
-          "value":"-3.03",
+          "value":3.03,
           "selected":false
         },
         "PropertyTwo":{
           "name":"SWE ORPHAN BIOVITRU",
-          "value":"+1.73",
+          "value":1.73,
           "selected":false
         }
       }
     },
     {
       "name": "Diagnostic Substances",
-      "price":"377.3",
-      "standardRates": "377.3",
+      "price":377.3,
+      "standardRates": 377.3,
       "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"14.11"
+          "value":14.11
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.78"
+          "value":0.78
         },
         "PropertyOne":{
           "name":"Meridian Bioscience Inc.",
-          "value":"-1.57",
+          "value":1.57,
           "selected":false
         },
         "PropertyTwo":{
           "name":"Quidel Corporation",
-          "value":"0.00",
+          "value":0.00,
           "selected":false
         }
       }

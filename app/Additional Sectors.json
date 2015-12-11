@@ -9,119 +9,119 @@
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"17.10"
+          "value":17.10
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"1.60"
+          "value":1.60
         },
         "PropertyOne":{
           "name":"VERIZON COMM",
-          "value":"-0.15",
+          "value":-0.15,
           "selected":false
         },
         "PropertyTwo":{
           "name":"VODAFONE GROUP",
-          "value":"-2.01",
+          "value":-2.01,
           "selected":false
         }
       }
     },
     {
       "name": "Application Software",
-      "price":"1380.0",
-      "standardRates": "1380.0",
+      "price":1380.0,
+      "standardRates": 1380.0,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"7.22"
+          "value":7.22
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"3.1"
+          "value":3.1
         },
         "PropertyOne":{
           "name":"Oracle Corporation",
-          "value":"+0.22",
+          "value":0.22,
           "selected":false
         },
         "PropertyTwo":{
           "name":"SAP SE ADS",
-          "value":"+1.13",
+          "value":1.13,
           "selected":false
         }
       }
     },
     {
       "name": "Diversified Electronics",
-      "price":"543.9",
-      "standardRates": "543.9",
+      "price":543.9,
+      "standardRates": 543.9,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"13.75"
+          "value":13.75
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"1.01"
+          "value":1.01
         },
         "PropertyOne":{
           "name":"MITSUBISHI ELECTRIC",
-          "value":"+11.13",
+          "value":11.13,
           "selected":false
         },
         "PropertyTwo":{
           "name":"MARUWA",
-          "value":"+5.96",
+          "value":5.96,
           "selected":false
         }
       }
     },
     {
       "name": "Telecom Services - Foreign",
-      "price":"1541.0",
-      "standardRates": "1541.0",
+      "price":1541.0,
+      "standardRates": 1541.0,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"7.99"
+          "value":7.99
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"3.41"
+          "value":3.41
         },
         "PropertyOne":{
           "name":"Telefonica SA",
-          "value":"0.00",
+          "value":0.00,
           "selected":false
         },
         "PropertyTwo":{
           "name":"Orange",
-          "value":"0.13",
+          "value":0.13,
           "selected":false
         }
       }
     },
     {
       "name": "Personal Computers",
-      "price":"2372.3",
-      "standardRates": "2372.3",
+      "price":2372.3,
+      "standardRates": 2372.3,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"17.13"
+          "value":17.13
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"4.76"
+          "value":4.76
         },
         "PropertyOne":{
           "name":"",
@@ -137,54 +137,54 @@
     },
     {
       "name": "Computer Peripherals",
-      "price":"778.1",
-      "standardRates": "778.1",
+      "price":778.1,
+      "standardRates": 778.1,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"11.11"
+          "value":11.11
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.11"
+          "value":0.11
         },
         "PropertyOne":{
           "name":"Electronics for Imaging",
-          "value":"+0.82",
+          "value":0.82,
           "selected":false
         },
         "PropertyTwo":{
           "name":"tratasys, Ltd.",
-          "value":"+0.72",
+          "value":0.72,
           "selected":false
         }
       }
     },
     {
       "name": "Computer Based Systems",
-      "price":"1332.1",
-      "standardRates": "1332.1",
+      "price":1332.1,
+      "standardRates": 1332.1,
       "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"13.15"
+          "value":13.15
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"7.33"
+          "value":7.33
         },
         "PropertyOne":{
           "name":"HP [HPQ.MX]",
-          "value":"-0.63",
+          "value":-0.63,
           "selected":false
         },
         "PropertyTwo":{
           "name":"HP COMPANY DRN EC",
-          "value":"-2.11",
+          "value":-2.11,
           "selected":false
         }
       }
@@ -198,101 +198,101 @@
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"2.10"
+          "value":2.10
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.11"
+          "value":0.11
         },
         "PropertyOne":{
           "name":"BIOLARGO, INC.",
-          "value":"-4.67",
+          "value":-4.67,
           "selected":false
         },
         "PropertyTwo":{
           "name":"GELTECH SOLUTIONS",
-          "value":"-7.18",
+          "value":-7.18,
           "selected":false
         }
       }
     },
     {
       "name": "Aluminum",
-      "price":"380.0",
-      "standardRates": "380.0",
+      "price":380.0,
+      "standardRates": 380.0,
       "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"0.22"
+          "value":0.22
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"-1.1"
+          "value":-1.1
         },
         "PropertyOne":{
           "name":"NORSK HYDRO",
-          "value":"-0.46",
+          "value":-0.46,
           "selected":false
         },
         "PropertyTwo":{
           "name":"ALCOA",
-          "value":"0.00",
+          "value":0.00,
           "selected":false
         }
       }
     },
     {
       "name": "Oil & Gas Pipelines",
-      "price":"1743.9",
-      "standardRates": "1743.9",
+      "price":1743.9,
+      "standardRates": 1743.9,
       "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"10.75"
+          "value":10.75
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"-3.31"
+          "value":-3.31
         },
         "PropertyOne":{
           "name":"Kinder Morgan, Inc.",
-          "value":"-1.19",
+          "value":-1.19,
           "selected":false
         },
         "PropertyTwo":{
           "name":"ENBRIDGE INC",
-          "value":"+1.03",
+          "value":1.03,
           "selected":false
         }
       }
     },
     {
       "name": "Independent Oil & Gas",
-      "price":"341.0",
-      "standardRates": "341.0",
+      "price":341.0,
+      "standardRates": 341.0,
       "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
           "name":"Long-Term Debt to Equity",
-          "value":"0.99"
+          "value":0.99
         },
         "DefaultPropertyTwo":{
           "name":"1 Day Price Change %",
-          "value":"0.01"
+          "value":0.01
         },
         "PropertyOne":{
           "name":"BG GROUP",
-          "value":"+0.15",
+          "value":0.15,
           "selected":false
         },
         "PropertyTwo":{
           "name":"CONOCOPHILLIPS",
-          "value":"+0.56",
+          "value":0.56,
           "selected":false
         }
       }
