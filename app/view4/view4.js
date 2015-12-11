@@ -1,5 +1,6 @@
 'use strict';
 //TODO:write unit-test for view4
+//TODO:Also this code needs refactor, will be done when got time
 angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -74,6 +75,7 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 //when user leaves from view4 - array with selected and list sectors is added to cache and got form cache when user returns to view4 from another view
 .controller('View4Ctrl', ['$scope','HealthCareSector','additionalSectors','$cacheFactory',function($scope,HealthCareSector,additionalSectors,$cacheFactory) {
   $scope.showDetails = true;
+  $scope.hiddenSectors =[];
   function hideSector(element, index, array) {
     if (!element.price || element.price == "0.00") {
       var lastItem = array[array.length - 1];
@@ -96,7 +98,6 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
     else{
       $scope.cache = $cacheFactory('industrySectors');//create cacheId and put there value if this cacheId not found
       $scope.industrySectors = [{name:"Healthcare Sector", selected:[], list: []},{name:"Technology Sector", selected:[], list: []},{name:"Basic Materials Sector", selected:[], list: []}];
-      $scope.hiddenSectors =[];
       HealthCareSector.get().success(function(data){
         $scope.industrySectors[0].list = data.list;
         $scope.industrySectors[0].list.forEach(hideSector)
@@ -218,6 +219,20 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       innerSelectedSectorFunction(false,false,true);
     }
   };
+
+  //when controller loaded, check sector status and updated property status
+  for(var i = 0; i < $scope.industrySectors.length; i++) {
+    if ($scope.industrySectors[i].list.length > 0) {
+      $scope.industrySectors[i].list.forEach(function (element, index, array) {
+        if (!element.selected) {
+          element.price = element.standardRates;
+          element.details.PropertyOne.selected = false;
+          element.details.PropertyTwo.selected = false;
+        }
+      })
+    };
+  }
+
 //main function with inner function and returned object with functions which used in directive
   $scope.mainFunctional = function(sectorName){
 
@@ -244,17 +259,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
       addFunction : function(){
         var searchResult = (function(){
-          if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){
-            $scope.industrySectors[0].list.filter(sectorSearch)[0].selected = true;
-            return $scope.industrySectors[0].list.filter(sectorSearch)
-          }
-          else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){
-            $scope.industrySectors[1].list.filter(sectorSearch)[0].selected = true;
-            return $scope.industrySectors[1].list.filter(sectorSearch)
-          }
-          else{
-            $scope.industrySectors[2].list.filter(sectorSearch)[0].selected = true;
-            return $scope.industrySectors[2].list.filter(sectorSearch)
+          for(var i = 0; i < $scope.industrySectors.length; i++){
+            if($scope.industrySectors[i].list.filter(sectorSearch)[0] !== undefined){
+              $scope.industrySectors[i].list.filter(sectorSearch)[0].selected = true;
+              return $scope.industrySectors[i].list.filter(sectorSearch)
+            }
           }
         })();
         //adding sector into appropriate industry type
@@ -272,17 +281,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       removeFunction : function(){
         //change selected flag fot sector object to correctly display add/remove sector buttons (avoid opportunity to add several times each sector)
         var searchResult = (function(){
-          if($scope.industrySectors[0].list.filter(sectorSearch)[0] !== undefined){
-            $scope.industrySectors[0].list.filter(sectorSearch)[0].selected = false;
-            return $scope.industrySectors[0].list.filter(sectorSearch)
-          }
-          else if($scope.industrySectors[1].list.filter(sectorSearch)[0] !== undefined){
-            $scope.industrySectors[1].list.filter(sectorSearch)[0].selected = false;
-            return $scope.industrySectors[1].list.filter(sectorSearch)
-          }
-          else{
-            $scope.industrySectors[2].list.filter(sectorSearch)[0].selected = false;
-            return $scope.industrySectors[2].list.filter(sectorSearch)
+          for(var i = 0; i < $scope.industrySectors.length; i++){
+            if($scope.industrySectors[i].list.filter(sectorSearch)[0] !== undefined){
+              $scope.industrySectors[i].list.filter(sectorSearch)[0].selected = false;
+              return $scope.industrySectors[i].list.filter(sectorSearch)
+            }
           }
         })();
         //removing sector from appropriate industry type
@@ -294,6 +297,33 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
         }
         else{
           innerRemoveFunction(2);
+        }
+      },
+      updateRates: function(sectorName, propertyStatusObject){
+        var searchResult = (function(){
+          for(var i = 0; i < $scope.industrySectors.length; i++){
+            if($scope.industrySectors[i].list.filter(sectorSearch)[0] !== undefined){
+              return $scope.industrySectors[i].list.filter(sectorSearch)
+            }
+          }
+        })();
+        if(searchResult[0].selected){
+          searchResult[0].selected = false;
+          alert("Rate was changed, sector is removed from cart")
+          this.removeFunction();
+        }
+        if(propertyStatusObject.firstProperty || propertyStatusObject.secondProperty){
+          if(propertyStatusObject.firstProperty){
+            searchResult[0].price = Math.round((Number(searchResult[0].price) * (100 + Number(searchResult[0].details.PropertyOne.value)))*0.01);
+            searchResult[0].details.PropertyOne.selected = true;
+          }
+          else{
+            searchResult[0].price = Math.round((Number(searchResult[0].price) * (100 + Number(searchResult[0].details.PropertyTwo.value)))*0.01);
+            searchResult[0].details.PropertyTwo.selected = true;
+          }
+        }
+        else{
+          searchResult[0].price = searchResult[0].standardRates;
         }
       }
     }
@@ -333,7 +363,11 @@ angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
       scope.formStrintToObject = function(string){
         var object = scope.$eval("(" + string + ')');
         return object;
-      };
+      };//TODO:this object fails unittest, need fix in test or another solution in native angular object
+      scope.additionalPropertyStatus = {
+        firstProperty: scope.$eval(scope.sector).details.PropertyOne.selected,
+        secondProperty: scope.$eval(scope.sector).details.PropertyTwo.selected
+      }
     }
   }
 }]);

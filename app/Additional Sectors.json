@@ -3,7 +3,8 @@
     {
       "name": "Wireless Communications",
       "price":"",
-      "selected":"false",
+      "standardRates": "",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -17,19 +18,20 @@
         "PropertyOne":{
           "name":"VERIZON COMM",
           "value":"-0.15",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"VODAFONE GROUP",
           "value":"-2.01",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Application Software",
       "price":"1380.0",
-      "selected":"false",
+      "standardRates": "1380.0",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -43,19 +45,20 @@
         "PropertyOne":{
           "name":"Oracle Corporation",
           "value":"+0.22",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"SAP SE ADS",
           "value":"+1.13",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Diversified Electronics",
       "price":"543.9",
-      "selected":"false",
+      "standardRates": "543.9",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -69,19 +72,20 @@
         "PropertyOne":{
           "name":"MITSUBISHI ELECTRIC",
           "value":"+11.13",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"MARUWA",
           "value":"+5.96",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Telecom Services - Foreign",
       "price":"1541.0",
-      "selected":"false",
+      "standardRates": "1541.0",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -95,19 +99,20 @@
         "PropertyOne":{
           "name":"Telefonica SA",
           "value":"0.00",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"Orange",
           "value":"0.13",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Personal Computers",
       "price":"2372.3",
-      "selected":"false",
+      "standardRates": "2372.3",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -133,7 +138,8 @@
     {
       "name": "Computer Peripherals",
       "price":"778.1",
-      "selected":"false",
+      "standardRates": "778.1",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -147,19 +153,20 @@
         "PropertyOne":{
           "name":"Electronics for Imaging",
           "value":"+0.82",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"tratasys, Ltd.",
           "value":"+0.72",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Computer Based Systems",
       "price":"1332.1",
-      "selected":"false",
+      "standardRates": "1332.1",
+      "selected":false,
       "sectorType":"TC",
       "details": {
         "DefaultPropertyOne":{
@@ -173,12 +180,12 @@
         "PropertyOne":{
           "name":"HP [HPQ.MX]",
           "value":"-0.63",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"HP COMPANY DRN EC",
           "value":"-2.11",
-          "selected":"false"
+          "selected":false
         }
       }
     }
@@ -186,7 +193,7 @@
   "BasicMaterialsList": [
     {
       "name": "Synthetics",
-      "selected":"false",
+      "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
@@ -200,19 +207,20 @@
         "PropertyOne":{
           "name":"BIOLARGO, INC.",
           "value":"-4.67",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"GELTECH SOLUTIONS",
           "value":"-7.18",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Aluminum",
       "price":"380.0",
-      "selected":"false",
+      "standardRates": "380.0",
+      "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
@@ -226,19 +234,20 @@
         "PropertyOne":{
           "name":"NORSK HYDRO",
           "value":"-0.46",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"ALCOA",
           "value":"0.00",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Oil & Gas Pipelines",
       "price":"1743.9",
-      "selected":"false",
+      "standardRates": "1743.9",
+      "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
@@ -252,19 +261,20 @@
         "PropertyOne":{
           "name":"Kinder Morgan, Inc.",
           "value":"-1.19",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"ENBRIDGE INC",
           "value":"+1.03",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Independent Oil & Gas",
       "price":"341.0",
-      "selected":"false",
+      "standardRates": "341.0",
+      "selected":false,
       "sectorType":"BMC",
       "details": {
         "DefaultPropertyOne":{
@@ -278,12 +288,12 @@
         "PropertyOne":{
           "name":"BG GROUP",
           "value":"+0.15",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"CONOCOPHILLIPS",
           "value":"+0.56",
-          "selected":"false"
+          "selected":false
         }
       }
     }

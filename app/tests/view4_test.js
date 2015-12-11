@@ -318,7 +318,7 @@ describe('myApp.view4 module', function() {
     beforeEach(inject(function($compile, $rootScope){
       $scope = $rootScope.$new();
       $scope.sector = {name: "Application Software",price:1380.0, selected:true, sectorType:"TC", details: {DefaultPropertyOne:{name:"Long-Term Debt to Equity", value:7.22},DefaultPropertyTwo:{name:"1 Day Price Change %", value:3.1},PropertyOne:{name:"name1", value:"value1"},PropertyTwo:{name:"name2", value:"value2"}}};
-      element = angular.element('<product></product>');
+      element = angular.element('<product sector="{{sector}}"></product>');
       $compile(element)($scope);
       $rootScope.$digest();
     }));

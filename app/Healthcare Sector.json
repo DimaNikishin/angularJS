@@ -3,7 +3,8 @@
     {
       "name": "Biotechnology",
       "price":"0.00",
-      "selected":"false",
+      "standardRates": "0.00",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -17,19 +18,20 @@
         "PropertyOne":{
           "name":"SHIRE",
           "value":"-0.41",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"GILEAD SCIENCES",
           "value":"+1.13",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Medical Practitioners",
       "price":"2480.0",
-      "selected":"false",
+      "standardRates": "2480.0",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -43,7 +45,7 @@
         "PropertyOne":{
           "name":"LIFESTYLE MEDICAL",
           "value":"0.00",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"",
@@ -55,7 +57,8 @@
     {
       "name": "Hospitals",
       "price":"743.9",
-      "selected":"false",
+      "standardRates": "743.9",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -69,19 +72,20 @@
         "PropertyOne":{
           "name":"NMC HEALTH PLC",
           "value":"+1.82",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"SYNERGY HEALTH",
           "value":"+1.03",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Home Health Care",
       "price":"341.0",
-      "selected":"false",
+      "standardRates": "341.0",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -95,19 +99,20 @@
         "PropertyOne":{
           "name":"Chemed Corp",
           "value":"+0.91",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"Amedisys Inc",
           "value":"-0.13",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Drugs - Generic",
       "price":"542.3",
-      "selected":"false",
+      "standardRates": "542.3",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -121,19 +126,20 @@
         "PropertyOne":{
           "name":"LUPIN LTD.",
           "value":"-1.31",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"LUPIN LIMITED",
           "value":"-1.74",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Specialized Health Services",
       "price":"178.1",
-      "selected":"false",
+      "standardRates": "178.1",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -147,7 +153,7 @@
         "PropertyOne":{
           "name":"Amsurg Corp. [AMSG]",
           "value":"-2.03",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"",
@@ -159,7 +165,8 @@
     {
       "name": "Drug Related Products",
       "price":"612.1",
-      "selected":"false",
+      "standardRates": "612.1",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -173,19 +180,20 @@
         "PropertyOne":{
           "name":"Alternatives Internatio",
           "value":"+2.67",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"CTD HOLDINGS INC",
           "value":"+1.39",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Medical Laboratories & Research",
       "price":"874.9",
-      "selected":"false",
+      "standardRates": "874.9",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -199,19 +207,20 @@
         "PropertyOne":{
           "name":"EXOVA GROUP",
           "value":"-3.03",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"SWE ORPHAN BIOVITRU",
           "value":"+1.73",
-          "selected":"false"
+          "selected":false
         }
       }
     },
     {
       "name": "Diagnostic Substances",
       "price":"377.3",
-      "selected":"false",
+      "standardRates": "377.3",
+      "selected":false,
       "sectorType":"HC",
       "details": {
         "DefaultPropertyOne":{
@@ -225,12 +234,12 @@
         "PropertyOne":{
           "name":"Meridian Bioscience Inc.",
           "value":"-1.57",
-          "selected":"false"
+          "selected":false
         },
         "PropertyTwo":{
           "name":"Quidel Corporation",
           "value":"0.00",
-          "selected":"false"
+          "selected":false
         }
       }
     }
