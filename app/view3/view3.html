@@ -20,46 +20,47 @@
                 <!--<div ng-controller="View3CtrlwithQ">-->
                     <!--<button ng-click="func()">name</button>-->
                 <!--</div>-->
-                <form name="form">
-                    <input type="text" ng-model="inputText" name="text" required text>
-                    <div ng-show="form.$submitted || form.text.$touched">
-                        <div ng-show="form.text.$error.required">Tell us your name.</div>
-                        <div ng-show="form.text.$error.email">Tell us your email.</div>
-                    </div>
-                    <p>{{inputText}}</p>
+                <!--<form name="form">-->
+                    <!--<input type="text" ng-model="inputText" name="text" required text>-->
+                    <!--<div ng-show="form.$submitted || form.text.$touched">-->
+                        <!--<div ng-show="form.text.$error.required">Tell us your name.</div>-->
+                        <!--<div ng-show="form.text.$error.email">Tell us your email.</div>-->
+                    <!--</div>-->
+                    <!--<p>{{inputText}}</p>-->
 
-                    <input type="email" ng-model="user.email" name="uEmail" required text>
-                    <div ng-show="form.$submitted || form.uEmail.$touched">
-                        <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
-                        <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
-                    </div>
-                    <p>{{user.email}}</p>
-                    <input type="radio" ng-model="created" value="yes">{{created}}
-                    <input type="url" ng-model="user.url" name="uUrl" required url>
-                    <div ng-show="form.$submitted || form.uUrl.$touched">
-                        <span ng-show="form.uUrl.$error.required">Tell us your uUrl.</span>
-                        <span ng-show="form.uUrl.$error.url">This is not a valid uUrl.</span>
-                    </div>
-                    <p>{{user.url}}</p>
-                </form>
-            </div>
-            <div class="col-sm-6" ng-controller="angularCopy">
-                <templates></templates>
-                <country><state><city></city></state></country>
-                <div ng-controller="testCntrl as cntrl">
-                    <button ng-click="cntrl.myFunct($event)"></button>
-                </div>
-                <div ng-repeat-start="data in psysdata">{{data}}</div>
-                <h6>Hola-hup</h6>
-                <div ng-repeat-end="">ng-repeat {{data}}</div>
-                <input type="text" ng-model="selectedCopy.name">
-                <button ng-click="changeValue()">Save</button>
-                <div ng-repeat="data in Datas" ng-click="selectContact(data)">
-                    <h6>{{data.name}} {{data.job}}</h6>
-                </div>
-                <button ng-click="toggle = !toggle">Toggle</button>
-                <div hide="toggle">{{toggle}}</div>
-                {{title}}
+                    <!--<input type="email" ng-model="user.email" name="uEmail" required text>-->
+                    <!--<div ng-show="form.$submitted || form.uEmail.$touched">-->
+                        <!--<span ng-show="form.uEmail.$error.required">Tell us your email.</span>-->
+                        <!--<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>-->
+                    <!--</div>-->
+                    <!--<p>{{user.email}}</p>-->
+                    <!--<input type="radio" ng-model="created" value="yes">{{created}}-->
+                    <!--<input type="url" ng-model="user.url" name="uUrl" required url>-->
+                    <!--<div ng-show="form.$submitted || form.uUrl.$touched">-->
+                        <!--<span ng-show="form.uUrl.$error.required">Tell us your uUrl.</span>-->
+                        <!--<span ng-show="form.uUrl.$error.url">This is not a valid uUrl.</span>-->
+                    <!--</div>-->
+                    <!--<p>{{user.url}}</p>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--<div class="col-sm-6" ng-controller="angularCopy">-->
+                <!--<templates></templates>-->
+                <!--<country><state><city></city></state></country>-->
+                <!--<div ng-controller="testCntrl as cntrl">-->
+                    <!--<button ng-click="cntrl.myFunct($event)"></button>-->
+                <!--</div>-->
+                <!--<div ng-repeat-start="data in psysdata">{{data}}</div>-->
+                <!--<h6>Hola-hup</h6>-->
+                <!--<div ng-repeat-end="">ng-repeat {{data}}</div>-->
+                <!--<input type="text" ng-model="selectedCopy.name">-->
+                <!--<button ng-click="changeValue()">Save</button>-->
+                <!--<div ng-repeat="data in Datas" ng-click="selectContact(data)">-->
+                    <!--<h6>{{data.name}} {{data.job}}</h6>-->
+                <!--</div>-->
+                <!--<button ng-click="toggle = !toggle">Toggle</button>-->
+                <!--<div hide="toggle">{{toggle}}</div>-->
+                <!--{{title}}-->
+                <div trans-test>Check this out {{messages}}</div>
             </div>
         </div>
     </div>

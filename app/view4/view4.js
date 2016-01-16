@@ -1,5 +1,4 @@
 'use strict';
-//TODO:write unit-test for view4
 //TODO:Also this code needs refactor, will be done when got time
 angular.module('myApp.view4', ['ngRoute', 'ngAnimate'])
 

@@ -414,6 +414,16 @@ angular.module('myApp.view3', ['ngRoute','ngAnimate'])
       };
     }
   };
+}])
+.directive('transTest',[function(){
+  return {
+    transclude: true,
+    //scope: {},
+    template: '<div>name is not the same {{messages}}<div ng-transclude></div></div>',
+    link: function(scope){
+      scope.messages = "aaaaa"
+    }
+  }
 }]);
 
 function UnicornLauncher(valueName) {
