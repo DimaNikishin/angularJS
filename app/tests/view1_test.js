@@ -8,7 +8,7 @@ describe('myApp.view1 module', function() {
   beforeEach(module('myApp.view1'));
   beforeEach(inject(function($controller, $rootScope){
     scope = $rootScope;
-    view1Ctrl = $controller('View1Ctrl', {$scope:scope});
+    view1Ctrl = $controller('View1Controller', {$scope:scope});
   }));
 
   describe('view1 controller', function(){

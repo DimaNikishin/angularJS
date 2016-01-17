@@ -2,7 +2,7 @@ module.exports = function(config){
   config.set({
 
     basePath : './',
-
+//TODO: delete unnecessary files
     files : [
       'app/bower_components/jquery/dist/jquery.min.js',
       'app/bower_components/angular/angular.js',
@@ -13,6 +13,8 @@ module.exports = function(config){
       'app/bower_components/greensock/src/uncompressed/TweenMax.js',
       'app/bower_components/angular-loader/angular-loader.js',
       'app/components/**/*.js',
+      'app/view*/**/*.module.js',
+      'app/view*/**/*.controller.js',
       'app/view*/**/*.js',
       'app/tests/**/*.js',
       'app/*.js',

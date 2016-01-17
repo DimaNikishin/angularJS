@@ -1,33 +1,14 @@
+/**
+ * Created by dimanikishin on 17.01.16.
+ */
 'use strict';
+angular
+  .module('myApp.view1')
+  .controller('View1Controller',View1Controller);
 
-angular.module('myApp.view1', ['ngRoute', 'ngAnimate'])
+View1Controller.$inject = ['$scope'];
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Home', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
-// first directive with hover functionality for main content
-// try to don't use mouseenter animation via angular, do it with JQuery
-.directive('contentHoverFunc', [function(){
-  return function(scope,element){
-      element.bind('mouseenter', function(){
-        var blockIndex = element.index();
-        TweenMax.to($('.main-menu').children().eq(blockIndex),0.5, { className: "+=blackContent" });
-        TweenMax.to($('.content-block').children().eq(blockIndex),0.5, { className: "+=blackContent" });
-        element.addClass("blackContentСrutch"); //added empty class to verify that event triggered in karma test
-      });
-      element.bind('mouseleave', function(){
-        var blockIndex = element.index();
-        TweenMax.to($('.main-menu').children().eq(blockIndex),1, { className: "-=blackContent" });
-        TweenMax.to($('.content-block').children().eq(blockIndex),1, { className: "-=blackContent" });
-        element.removeClass("blackContentСrutch"); //removed empty class to verify that event triggered in karma test
-      })
-    }
-}])
-
-.controller('View1Ctrl', ['$scope',function($scope) {
+function View1Controller($scope){
   $scope.documentContent = [
     {
       menu:"Javascript",
@@ -52,4 +33,4 @@ angular.module('myApp.view1', ['ngRoute', 'ngAnimate'])
     menu: "Main menu",
     title: "AngularJS App"
   };
-}]);
+}

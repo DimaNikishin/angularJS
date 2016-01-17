@@ -39,7 +39,7 @@ describe('myApp module', function() {
   describe('app route functions', function(){
 
     it('should ....', inject(function() {
-      expect(route.routes['/Home'].controller).toBe('View1Ctrl');
+      expect(route.routes['/Home'].controller).toBe('View1Controller');
       expect(route.routes['/Home'].templateUrl).
         toEqual('view1/view1.html');
 
