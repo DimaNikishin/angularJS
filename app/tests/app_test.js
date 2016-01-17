@@ -46,7 +46,7 @@ describe('myApp module', function() {
       expect(route.routes['/Gallery'].templateUrl).
         toEqual('view2/view2.html');
       expect(route.routes['/Gallery'].controller).
-        toEqual('View2Ctrl');
+        toEqual('View2Controller');
 
       expect(route.routes['/CodeSandbox'].templateUrl).
         toEqual('view3/view3.html');

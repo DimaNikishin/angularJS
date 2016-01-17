@@ -8,7 +8,7 @@ describe('myApp.view2 module', function() {
   beforeEach(module('myApp.view2'));
   beforeEach(inject(function($controller, $rootScope, $httpBackend){{
     scope = $rootScope;
-    view2Ctrl = $controller('View2Ctrl', {$scope:scope});
+    view2Ctrl = $controller('View2Controller', {$scope:scope});
     httpBackend = $httpBackend;
     httpBackend.expectGET('http://localhost:8080/app/gallery.json').
       respond([{name: 'AJAX'}, {name: 'CALL'}, {name: 'TEST'}]);
