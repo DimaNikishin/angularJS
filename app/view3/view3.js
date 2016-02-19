@@ -1,5 +1,5 @@
 'use strict';
-
+//view3 for test code and sandbox - will not be refactored
 angular.module('myApp.view3', ['ngRoute','ngAnimate'])
 //add resolve
 //creating a provider and factory in config (every thing that can be inject into controller configured through $provide

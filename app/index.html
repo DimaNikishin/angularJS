@@ -21,7 +21,7 @@
   <!-- Application css -->
   <link rel="stylesheet" href="app.css">
 </head>
-<body ng-controller="indexCntrl">
+<body ng-controller="indexController">
   <div class="page-header">
     <h2>Commercial</h2>
   </div>
@@ -87,10 +87,13 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="app.js"></script>
   <script src="JQueryFiles/appJQuery.js"></script>
   <script src="JQueryFiles/highlightsScript.js"></script>
   <script src="authentication/authentication.js"></script>
+  <script src="index/index.module.js"></script>
+  <script src="index/index-ajaxError.directive.js"></script>
+  <script src="index/index-cachedArray.directive.js"></script>
+  <script src="index/index.controller.js"></script>
   <script src="view1/view1.module.js"></script>
   <script src="view1/view1.config.js"></script>
   <script src="view1/view1.controller.js"></script>
@@ -106,5 +109,6 @@
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
   <script src="native_JS_training/training.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

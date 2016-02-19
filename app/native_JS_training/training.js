@@ -226,17 +226,17 @@
 //constr.call(obj1,'JS');
 //console.log(obj1.job);
 //3. прототайп патер
-//function name(name){
-//  this.name = name;
-//}
+function name(name){
+  this.name = name;
+}
 //name.prototype.sayName = function(){return this.name};
 //var obj = new name("Dima");
 //console.log(Object.getPrototypeOf(obj));
 //console.log(name.prototype.isPrototypeOf(obj));
 //console.log(obj.hasOwnProperty('sayName'))
 //console.log("sayName" in obj);
-//console.log(Object.keys(name.prototype).toString())
-//console.log(Object.getOwnPropertyNames(obj).toString())
+//console.log(Object.keys(name.prototype))
+//console.log(Object.getOwnPropertyNames(obj))
 
 //function proto(name){
 //  this.name = name;

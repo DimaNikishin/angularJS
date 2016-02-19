@@ -13,6 +13,8 @@ module.exports = function(config){
       'app/bower_components/greensock/src/uncompressed/TweenMax.js',
       'app/bower_components/angular-loader/angular-loader.js',
       'app/components/**/*.js',
+      'app/index/**/*.module.js',
+      'app/index/**/*.controller.js',
       'app/view*/**/*.module.js',
       'app/view*/**/*.controller.js',
       'app/view*/**/*.js',
